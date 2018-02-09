@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1C98802029748A0051F705 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C987F2029748A0051F705 /* InstructionViewController.m */; };
+		BF1C9883202A60A60051F705 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9882202A60A60051F705 /* Reachability.m */; };
+		BF1C9886202A60C60051F705 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9885202A60C60051F705 /* SystemConfiguration.framework */; };
+		BF1C988B202B70240051F705 /* fileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9889202B70240051F705 /* fileIcon.png */; };
+		BF1C988C202B70240051F705 /* linkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C988A202B70240051F705 /* linkIcon.png */; };
+		BF1C988F202B7C210051F705 /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C988E202B7C210051F705 /* FileViewController.m */; };
+		BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; };
+		BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9895202C90290051F705 /* SettingsViewController.m */; };
+		BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
 		BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDB2023F31A00F7C120 /* AppDelegate.m */; };
-		BFC98BDF2023F31A00F7C120 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ViewController.m */; };
+		BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */; };
 		BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE02023F31A00F7C120 /* Main.storyboard */; };
 		BFC98BE42023F31A00F7C120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE32023F31A00F7C120 /* Assets.xcassets */; };
 		BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE52023F31A00F7C120 /* LaunchScreen.storyboard */; };
 		BFC98BEA2023F31A00F7C120 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BE92023F31A00F7C120 /* main.m */; };
 		BFC98BF42023F31A00F7C120 /* ScenariosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BF32023F31A00F7C120 /* ScenariosTests.m */; };
 		BFC98BFF2023F31A00F7C120 /* ScenariosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BFE2023F31A00F7C120 /* ScenariosUITests.m */; };
+		BFC98C0E2023F34100F7C120 /* SourceDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C0D2023F34100F7C120 /* SourceDataHandler.m */; };
+		BFC98C122024B76000F7C120 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C112024B76000F7C120 /* QuestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +46,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF1C987E2029748A0051F705 /* InstructionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstructionViewController.h; sourceTree = "<group>"; };
+		BF1C987F2029748A0051F705 /* InstructionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
+		BF1C9881202A60A60051F705 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../../Downloads/Reachability-master/Reachability.h"; sourceTree = "<group>"; };
+		BF1C9882202A60A60051F705 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../../Downloads/Reachability-master/Reachability.m"; sourceTree = "<group>"; };
+		BF1C9885202A60C60051F705 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BF1C9889202B70240051F705 /* fileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fileIcon.png; path = ../../../fileIcon.png; sourceTree = "<group>"; };
+		BF1C988A202B70240051F705 /* linkIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linkIcon.png; path = ../../../linkIcon.png; sourceTree = "<group>"; };
+		BF1C988D202B7C210051F705 /* FileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
+		BF1C988E202B7C210051F705 /* FileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileViewController.m; sourceTree = "<group>"; };
+		BF1C9890202B96200051F705 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		BF1C9894202C90290051F705 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		BF1C9895202C90290051F705 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		BF1C9896202C90290051F705 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFC98BDB2023F31A00F7C120 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BFC98BDD2023F31A00F7C120 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BFC98BDE2023F31A00F7C120 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BFC98BDD2023F31A00F7C120 /* ScenarioHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScenarioHomeViewController.h; sourceTree = "<group>"; };
+		BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScenarioHomeViewController.m; sourceTree = "<group>"; };
 		BFC98BE12023F31A00F7C120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFC98BE32023F31A00F7C120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFC98BE62023F31A00F7C120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +75,11 @@
 		BFC98BFA2023F31A00F7C120 /* ScenariosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenariosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BFE2023F31A00F7C120 /* ScenariosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScenariosUITests.m; sourceTree = "<group>"; };
 		BFC98C002023F31A00F7C120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFC98C0D2023F34100F7C120 /* SourceDataHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceDataHandler.m; sourceTree = "<group>"; };
+		BFC98C0F2023F52400F7C120 /* SourceDataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceDataHandler.h; sourceTree = "<group>"; };
+		BFC98C102024B76000F7C120 /* QuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		BFC98C112024B76000F7C120 /* QuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		BFC98C182025244800F7C120 /* Scenarios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scenarios.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1C9886202A60C60051F705 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +109,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1C9884202A60C60051F705 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF1C9890202B96200051F705 /* PDFKit.framework */,
+				BF1C9885202A60C60051F705 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF1C9887202A89B40051F705 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF1C987E2029748A0051F705 /* InstructionViewController.h */,
+				BF1C987F2029748A0051F705 /* InstructionViewController.m */,
+				BFC98C102024B76000F7C120 /* QuestionViewController.h */,
+				BFC98C112024B76000F7C120 /* QuestionViewController.m */,
+				BFC98BDD2023F31A00F7C120 /* ScenarioHomeViewController.h */,
+				BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */,
+				BF1C988D202B7C210051F705 /* FileViewController.h */,
+				BF1C988E202B7C210051F705 /* FileViewController.m */,
+				BF1C9894202C90290051F705 /* SettingsViewController.h */,
+				BF1C9895202C90290051F705 /* SettingsViewController.m */,
+				BF1C9896202C90290051F705 /* SettingsViewController.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BF1C9888202B70170051F705 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF1C9889202B70240051F705 /* fileIcon.png */,
+				BF1C988A202B70240051F705 /* linkIcon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
+				BF1C9888202B70170051F705 /* Images */,
+				BF1C9884202A60C60051F705 /* Frameworks */,
+				BFC98BD82023F31A00F7C120 /* Products */,
 				BFC98BD92023F31A00F7C120 /* Scenarios */,
 				BFC98BF22023F31A00F7C120 /* ScenariosTests */,
 				BFC98BFD2023F31A00F7C120 /* ScenariosUITests */,
-				BFC98BD82023F31A00F7C120 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +170,11 @@
 		BFC98BD92023F31A00F7C120 /* Scenarios */ = {
 			isa = PBXGroup;
 			children = (
+				BF1C9887202A89B40051F705 /* View Controllers */,
+				BFC98C182025244800F7C120 /* Scenarios.entitlements */,
+				BFC98C0C2023F32300F7C120 /* Libraries */,
 				BFC98BDA2023F31A00F7C120 /* AppDelegate.h */,
 				BFC98BDB2023F31A00F7C120 /* AppDelegate.m */,
-				BFC98BDD2023F31A00F7C120 /* ViewController.h */,
-				BFC98BDE2023F31A00F7C120 /* ViewController.m */,
 				BFC98BE02023F31A00F7C120 /* Main.storyboard */,
 				BFC98BE32023F31A00F7C120 /* Assets.xcassets */,
 				BFC98BE52023F31A00F7C120 /* LaunchScreen.storyboard */,
@@ -130,6 +200,17 @@
 				BFC98C002023F31A00F7C120 /* Info.plist */,
 			);
 			path = ScenariosUITests;
+			sourceTree = "<group>";
+		};
+		BFC98C0C2023F32300F7C120 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BF1C9881202A60A60051F705 /* Reachability.h */,
+				BF1C9882202A60A60051F705 /* Reachability.m */,
+				BFC98C0F2023F52400F7C120 /* SourceDataHandler.h */,
+				BFC98C0D2023F34100F7C120 /* SourceDataHandler.m */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +281,11 @@
 					BFC98BD62023F31A00F7C120 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BFC98BEE2023F31A00F7C120 = {
 						CreatedOnToolsVersion = 9.2;
@@ -238,9 +324,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1C988B202B70240051F705 /* fileIcon.png in Resources */,
+				BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */,
 				BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */,
 				BFC98BE42023F31A00F7C120 /* Assets.xcassets in Resources */,
 				BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */,
+				BF1C988C202B70240051F705 /* linkIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +354,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFC98BDF2023F31A00F7C120 /* ViewController.m in Sources */,
+				BFC98C0E2023F34100F7C120 /* SourceDataHandler.m in Sources */,
+				BF1C98802029748A0051F705 /* InstructionViewController.m in Sources */,
+				BFC98C122024B76000F7C120 /* QuestionViewController.m in Sources */,
+				BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */,
+				BF1C9883202A60A60051F705 /* Reachability.m in Sources */,
+				BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */,
 				BFC98BEA2023F31A00F7C120 /* main.m in Sources */,
+				BF1C988F202B7C210051F705 /* FileViewController.m in Sources */,
 				BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +525,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scenarios/Scenarios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DAJBY2KFRM;
 				INFOPLIST_FILE = Scenarios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamburstein.Scenarios;
@@ -443,7 +540,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scenarios/Scenarios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DAJBY2KFRM;
 				INFOPLIST_FILE = Scenarios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamburstein.Scenarios;
