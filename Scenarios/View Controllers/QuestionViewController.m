@@ -39,6 +39,11 @@ UITableView *tView;
     links = [dataDictionary valueForKey:@"links"];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     
+    UIImage *bgImage = [UIImage imageNamed:@"PPR_1242x2208_GrayBG_AppLaunch.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
+    imageView.alpha = 0.15;
+    [self.tableView setBackgroundView:imageView];
+
     UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
     self.navigationItem.rightBarButtonItem = resetButton;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -197,11 +202,12 @@ UITableView *tView;
     }
     UIFont *font = [UIFont systemFontOfSize:14];
     cell.layoutMargins = UIEdgeInsetsZero;
-    [[cell textLabel] setNumberOfLines:4];
+    [[cell textLabel] setNumberOfLines:6];
     [[cell textLabel] setFont:font];
     [[cell textLabel] setText:[self getCellText:indexPath]];
     [[cell imageView] setImage:[self getCellImage:indexPath]];
-     [cell setAccessoryType:[self getAccessoryType:indexPath]];
+    [cell setAccessoryType:[self getAccessoryType:indexPath]];
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 

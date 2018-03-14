@@ -26,6 +26,9 @@
 		BFC98BFF2023F31A00F7C120 /* ScenariosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BFE2023F31A00F7C120 /* ScenariosUITests.m */; };
 		BFC98C0E2023F34100F7C120 /* SourceDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C0D2023F34100F7C120 /* SourceDataHandler.m */; };
 		BFC98C122024B76000F7C120 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C112024B76000F7C120 /* QuestionViewController.m */; };
+		BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */; };
+		BFCD1A7E203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */; };
+		BFCD1A7F203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		BFC98C102024B76000F7C120 /* QuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		BFC98C112024B76000F7C120 /* QuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		BFC98C182025244800F7C120 /* Scenarios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scenarios.entitlements; sourceTree = "<group>"; };
+		BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPRLogo_BlackGlobe.png; path = ../../../../Downloads/emailapprovedbydwhit/PPRLogo_BlackGlobe.png; sourceTree = "<group>"; };
+		BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPR_1242x2208_GrayBG_AppLaunch.png; path = ../../../../Downloads/emailapprovedbydwhit/PPR_1242x2208_GrayBG_AppLaunch.png; sourceTree = "<group>"; };
+		BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPR_750x1334_GrayBG_AppLaunch.png; path = ../../../../Downloads/emailapprovedbydwhit/PPR_750x1334_GrayBG_AppLaunch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,9 @@
 		BF1C9888202B70170051F705 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */,
+				BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */,
+				BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */,
 				BF1C9889202B70240051F705 /* fileIcon.png */,
 				BF1C988A202B70240051F705 /* linkIcon.png */,
 			);
@@ -325,11 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1C988B202B70240051F705 /* fileIcon.png in Resources */,
+				BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */,
 				BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */,
 				BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */,
 				BFC98BE42023F31A00F7C120 /* Assets.xcassets in Resources */,
+				BFCD1A7E203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */,
 				BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */,
 				BF1C988C202B70240051F705 /* linkIcon.png in Resources */,
+				BFCD1A7F203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

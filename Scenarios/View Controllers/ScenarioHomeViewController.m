@@ -35,6 +35,10 @@ NSMutableArray *scenariosArray;
     NSArray *leftButtons = @[barButtonItem, configButton];
     self.navigationItem.leftBarButtonItems = leftButtons;
     self.navigationItem.rightBarButtonItem = resetButton;
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0]];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
     [self.tableView reloadData];
@@ -51,6 +55,11 @@ NSMutableArray *scenariosArray;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    UIImage *bgImage = [UIImage imageNamed:@"PPR_1242x2208_GrayBG_AppLaunch.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
+    imageView.alpha = 0.15;
+    [self.tableView setBackgroundView:imageView];
+    
     if ([lastController isKindOfClass:[SettingsViewController class]])
     {
         scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
@@ -239,7 +248,13 @@ UIAlertController *pleaseWaitController;
     theString = [theString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    UIFont *font = [UIFont systemFontOfSize:14];
+    cell.layoutMargins = UIEdgeInsetsZero;
+    [[cell textLabel] setNumberOfLines:6];
+    [[cell textLabel] setFont:font];
+
     [[cell textLabel] setText:theString];
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
