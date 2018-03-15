@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<fulldata>
+		<version>
+			<date>2018-02-24</date>
+			<supportEmail>help@eop.gov</supportEmail>
+			<supportQueue>ASG</supportQueue>
+			<remoteURL>http://0.0.0.0/scenarioData.xml</remoteURL>
+		</version>
+		<scenarios>
+			<scenario>
+				<name>Cyber Threat</name>
+				<questions>
+					<question>
+						<text>What is the nature of the threat?</text>
+					</question>
+					<question>
+						<text>What is the source of the information?</text>
+					</question>
+					<question>
+						<text>How reliable is the information/assessment?</text>
+					</question>
+					<question>
+						<text>What actions are being taken to address the threat?</text>
+					</question>
+					<question>
+						<text>What cyberspace capabilities do we have to counter the threat?</text>
+					</question>
+					<question>
+						<text>What is the probablility of success?</text>
+					</question>
+					<question>
+						<text>What is the risk of collateral cyber damage?</text>
+					</question>
+					<question>
+						<text>Are there any alternative options?</text>
+					</question>
+					<question>
+						<text>How much time before a decision is required?</text>
+					</question>
+					<question>
+						<text>What are the predicted consequences of the threat?</text>
+					</question>
+					<question>
+						<text>What additional authorities or permissions are needed?</text>
+					</question>
+				</questions>
+			</scenario>
+			<scenario>
+				<name>Domestic Event/Threat</name>
+				<questions>
+					<question>
+						<text>What is the nature/characterization of the threat?</text>
+					</question>
+					<question>
+						<text>Is there any damage at this time and to what extent?</text>
+					</question>
+					<question>
+						<text>What is the source of the information?</text>
+					</question>
+					<question>
+						<text>How reliable is the information and/or the assessment?</text>
+					</question>
+					<question>
+						<text>Is there a timeline for a decision?</text>
+					</question>
+					<question>
+						<text>Impacts</text>
+						<instructions>
+							<step>What are the impacts to Continuity of Operations?</step>
+							<step>What are the impacts to Continuity of Government?</step>
+							<step>What are the impacts to Command and Control of Forces?</step>
+						</instructions>
+					</question>
+					<question>
+						<text>What is the probability of success of the recommended engagement/mitigation option(s)?</text>
+					</question>
+					<question>
+						<text>What are the likely unintended consequences of our response?</text>
+					</question>
+					<question>
+						<text>Are there any alternative options?</text>
+					</question>
+					<question>
+						<text>What are the likely follow on courses of action or threats we can anticipate?</text>
+					</question>
+					<question>
+						<text>Are there additional authorities or permissions required at this time?</text>
+					</question>
+				</questions>
+			</scenario>
+			<scenario>
+				<name>Air Event/Noble Eagle/Possible Shootdown Event</name>
+				<questions>
+					<question>
+						<text>How much time before a decision is required? </text>
+					</question>
+					<question>
+						<text>What indicators lead us to believe the target is hostile?</text>
+					</question>
+					<question>
+						<text>How confident are we with the information sources?</text>
+					</question>
+					<question>
+						<text>Any reports of suspicious aircraft activity or events elsewhere?</text>
+					</question>
+					<question>
+						<text>What is the impression of the intercept/on-scene pilots?</text>
+					</question>
+					<question>
+						<text>What do we think is the aircraft's intent/intended target?</text>
+					</question>
+					<question>
+						<text>What mitigation efforts are underway in possible target areas?</text>
+					</question>
+					<question>
+						<text>What are the consequences of impact/shootdown (lives and/or property) given the type of aircraft?</text>
+					</question>
+				</questions>
+			</scenario>
+			<scenario>
+				<name>Critcal Infrastucture/Key Resource Support (CIKR)</name>
+				<questions>
+					<question>
+						<text>Is assistance essential to public health and safety?</text>
+					</question>
+					<question>
+						<text>Is a specific authority, such as the Stafford Act or Defense Production Act (DPA), needed for the request?</text>
+					</question>
+					<question>
+						<text>Does the Joint Field Office (JFO) have the capability to provide resources through the Stafford Act authorities or to facilitate non-Stafford Act coordination to meet the requirement?</text>
+					</question>
+					<question>
+						<text>Does the request align with current response, recovery, and restoration priorities established by the Unified Coordination Group (UCG) or through the National Response Coordination Center (NRCC) if the JFO is not established?</text>
+					</question>
+					<question>
+						<text>Is the Federal Goverment the most appropriate level to provide resources to meet the requirement?  If so, what Emergency Support Function (ESF) is the most appropriate to coordinate the request?</text>
+					</question>
+					<question>
+						<text>What is the reimbursment mechanism for ESF or other Federal Department or agency support?</text>
+					</question>
+					<question>
+						<text>Which other officials are participating in the UCG or at the national level and are able to commit agency authorities or resources and what would be needed to support the request?</text>
+					</question>
+					<question>
+						<text>Does the request align with the current incident-management priorities?</text>
+					</question>
+					<question>
+						<text>Does the requester have the capability to provide resources on its own?</text>
+					</question>
+					<question>
+						<text>Are there alternative means and timing available to provide the requested assistance?</text>
+					</question>
+					<question>
+						<text>What are the benefits or costs of providing assistance to a local community's resources, capabilities, and/or economy and meeting critical regional or national CIKR needs?</text>
+					</question>
+					<question>
+						<text>What are the benefits or costs to a community or region of redirecting the requested resources or capabilities from other requirements?</text>
+					</question>
+				</questions>
+			</scenario>
+		</scenarios>
+	</fulldata>
+

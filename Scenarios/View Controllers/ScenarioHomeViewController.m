@@ -248,7 +248,7 @@ UIAlertController *pleaseWaitController;
     theString = [theString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    UIFont *font = [UIFont systemFontOfSize:14];
+    UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
     [[cell textLabel] setNumberOfLines:6];
     [[cell textLabel] setFont:font];

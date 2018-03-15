@@ -200,7 +200,7 @@ UITableView *tView;
         ++numSections;
         hasLinks = YES;
     }
-    UIFont *font = [UIFont systemFontOfSize:14];
+    UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
     [[cell textLabel] setNumberOfLines:6];
     [[cell textLabel] setFont:font];
@@ -360,7 +360,7 @@ UITableView *tView;
     CGFloat cellHeight = 30;
     NSString *cellText = [self getCellText:indexPath];
 
-    UIFont *font = [UIFont systemFontOfSize:14];
+    UIFont *font = [UIFont systemFontOfSize:18];
     CGSize constraintSize = CGSizeMake(200, CGFLOAT_MAX);
     
     CGRect textRect = [cellText boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];

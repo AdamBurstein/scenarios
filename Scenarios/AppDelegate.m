@@ -25,7 +25,29 @@
                           }];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     
+    [self copyXMLFileToDocuments];
+
     return YES;
+}
+
+-(NSString *)GetDocumentDirectory{
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    return homeDir;
+}
+
+-(void) copyXMLFileToDocuments
+{
+    NSString *filepath = [[NSString alloc] init];
+    NSError *error = nil;
+    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"scenarioData.xml"];
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
+        return;
+    
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"scenarioData" ofType:@"xml"];
+    [[NSFileManager defaultManager] copyItemAtPath:bundlePath toPath:filepath error:&error];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken

@@ -146,7 +146,7 @@ NSMutableCharacterSet *nonAlphaNums;
                                       reuseIdentifier:MyIdentifier];
     }
     
-    UIFont *font = [UIFont systemFontOfSize:14];
+    UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
     [[cell textLabel] setNumberOfLines:6];
     [[cell textLabel] setFont:font];
