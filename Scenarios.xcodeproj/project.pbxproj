@@ -16,6 +16,7 @@
 		BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; };
 		BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9895202C90290051F705 /* SettingsViewController.m */; };
 		BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
+		BFA5C879205A1669009FCA71 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BFA5C878205A1669009FCA71 /* scenarioData.xml */; };
 		BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDB2023F31A00F7C120 /* AppDelegate.m */; };
 		BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */; };
 		BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE02023F31A00F7C120 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		BF1C9894202C90290051F705 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		BF1C9895202C90290051F705 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BF1C9896202C90290051F705 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		BFA5C878205A1669009FCA71 /* scenarioData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scenarioData.xml; sourceTree = "<group>"; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFC98BDB2023F31A00F7C120 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
+				BFA5C878205A1669009FCA71 /* scenarioData.xml */,
 				BF1C9888202B70170051F705 /* Images */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
 				BFC98BD82023F31A00F7C120 /* Products */,
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1C988B202B70240051F705 /* fileIcon.png in Resources */,
+				BFA5C879205A1669009FCA71 /* scenarioData.xml in Resources */,
 				BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */,
 				BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */,
 				BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */,
