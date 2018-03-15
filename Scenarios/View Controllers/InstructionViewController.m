@@ -20,6 +20,8 @@
 @synthesize tview;
 @synthesize checkBoxes;
 
+NSMutableCharacterSet *nonAlphaNums;
+
 #pragma mark -
 
 -(void)goBack
@@ -30,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSMutableCharacterSet *nonAlphaNums = [[NSMutableCharacterSet alloc] init];
+    nonAlphaNums = [[NSMutableCharacterSet alloc] init];
     [nonAlphaNums formUnionWithCharacterSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
     [nonAlphaNums removeCharactersInString:@" "];
     [nonAlphaNums removeCharactersInString:@"_"];
@@ -200,12 +202,24 @@
  }
  */
 
+-(NSString *)formatName:(NSString *)name
+{
+    NSString *returnValue = [NSString stringWithString:name];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
+    return returnValue;
+}
+
+
 -(void)WriteToStringFile
 {
     NSString *filepath = [[NSString alloc] init];
     NSError *err;
     
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", name]];
+    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     
     NSString *textToWrite = [[NSString alloc] init];
     for (id key in checkBoxes)

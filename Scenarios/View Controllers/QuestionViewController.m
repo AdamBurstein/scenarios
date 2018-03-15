@@ -452,6 +452,17 @@ UITableView *tView;
     [self.tableView reloadData];
 }
 
+-(NSString *)formatName:(NSString *)name
+{
+    NSString *returnValue = [NSString stringWithString:name];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
+    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
+    return returnValue;
+}
+
 -(void) reset
 {
     NSString *filepath = [[NSString alloc] init];
@@ -464,7 +475,8 @@ UITableView *tView;
     for (int i = 0; i < [files count]; ++i)
     {
         NSString *filename = [files objectAtIndex:i];
-        if (([filename containsString:[NSString stringWithFormat:@"%@_set.txt", [dataDictionary valueForKey:@"name"]]]) || ([filename containsString:[NSString stringWithFormat:@"%@~", [dataDictionary valueForKey:@"name"]]]))
+        NSString *newFileName = [self formatName:[dataDictionary valueForKey:@"name"]];
+        if (([filename containsString:[NSString stringWithFormat:@"%@_set.txt", newFileName]]) || ([filename containsString:[NSString stringWithFormat:@"%@~", newFileName]]))
         {
             foundOne = YES;
             NSString *thisFile = [filepath stringByAppendingPathComponent:filename];
@@ -479,7 +491,7 @@ UITableView *tView;
             }
             else
             {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Errpr" message:@"There was an error resetting your scenarios." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error resetting your scenarios." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                 [alert addAction:action];
                 [self presentViewController:alert animated:YES completion:nil];
