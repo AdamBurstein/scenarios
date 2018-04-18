@@ -19,7 +19,13 @@
 @synthesize xmlVersionLabel;
 @synthesize remoteURLField;
 @synthesize saveButton;
+@synthesize hideKeyboardButton;
 @synthesize cancelButton;
+
+-(void)hideKeyboard:(id)sender
+{
+    [self.remoteURLField resignFirstResponder];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

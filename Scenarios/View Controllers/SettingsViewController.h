@@ -14,9 +14,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *xmlVersionLabel;
 @property (nonatomic, strong) IBOutlet UITextField *remoteURLField;
 @property (nonatomic, strong) IBOutlet UIButton *saveButton;
+@property (nonatomic, strong) IBOutlet UIButton *hideKeyboardButton;
 @property (nonatomic, strong) IBOutlet UIButton *cancelButton;
 
-
+-(IBAction)hideKeyboard:(id)sender;
 -(IBAction)clickSaveOrCancel:(id)sender;
 
 

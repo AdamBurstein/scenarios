@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *instructionsArray;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *directoryName;
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) UITableView *tview;
 @property (nonatomic, strong) NSMutableDictionary *checkBoxes;

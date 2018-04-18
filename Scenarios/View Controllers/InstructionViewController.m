@@ -15,6 +15,7 @@
 @implementation InstructionViewController
 
 @synthesize name;
+@synthesize directoryName;
 @synthesize fullName;
 @synthesize instructionsArray;
 @synthesize tview;
@@ -37,8 +38,9 @@ NSMutableCharacterSet *nonAlphaNums;
     [nonAlphaNums removeCharactersInString:@" "];
     [nonAlphaNums removeCharactersInString:@"_"];
     [nonAlphaNums removeCharactersInString:@"-"];
-    [nonAlphaNums removeCharactersInString:@"~"];
+//    [nonAlphaNums removeCharactersInString:@"~"];
     NSString *newString = [[name componentsSeparatedByCharactersInSet:nonAlphaNums] componentsJoinedByString:@""];
+    newString = [newString stringByAppendingFormat:@"~%@", directoryName];
     [self setName:newString];
 
     self.navigationItem.title = @"Details";
@@ -148,7 +150,7 @@ NSMutableCharacterSet *nonAlphaNums;
     
     UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
-    [[cell textLabel] setNumberOfLines:6];
+    [[cell textLabel] setNumberOfLines:10];
     [[cell textLabel] setFont:font];
     [[cell textLabel] setText:[instructionsArray objectAtIndex:indexPath.row]];
     [cell setAccessoryType:[self getAccessoryType:indexPath]];
@@ -209,7 +211,7 @@ NSMutableCharacterSet *nonAlphaNums;
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
-    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
+//    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
     return returnValue;
 }
 
@@ -247,7 +249,7 @@ NSMutableCharacterSet *nonAlphaNums;
 {
     NSString *filepath = [[NSString alloc] init];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", name]];
+    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
     NSArray *array = [txtInFile componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; ++i)

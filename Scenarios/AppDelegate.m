@@ -7,26 +7,43 @@
 //
 
 #import "AppDelegate.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface AppDelegate ()
 
 @end
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-
-    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                              // Enable or disable features based on authorization.
-                          }];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     [self copyXMLFileToDocuments];
+    application.applicationIconBadgeNumber = 0;
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
 
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
+    {
+        if( !error )
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            });            NSLog( @"Push registration success." );
+        }
+        else
+        {
+            NSLog( @"Push registration FAILED" );
+            NSLog( @"ERROR: %@ - %@", error.localizedFailureReason, error.localizedDescription );
+            NSLog( @"SUGGESTIONS: %@ - %@", error.localizedRecoveryOptions, error.localizedRecoverySuggestion );
+        }
+    }
+    ];
+    
     return YES;
 }
 
@@ -52,7 +69,27 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken
 {
-    NSLog(@"Success");
+    NSString *tokenString = [[NSUserDefaults standardUserDefaults] valueForKey:@"DeviceTokenFinal"];
+    
+    if ((tokenString == nil) || ([tokenString isEqualToString:@""]))
+    {
+        NSString *tokenString = [deviceToken description];
+        tokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        tokenString = [tokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSLog(@"Push Notification tokenstring is %@",tokenString);
+
+
+        NSString *deviceDetails = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+
+        NSLog(@"%@", deviceDetails);
+        
+        // Write to web service
+        // Test to make sure that it was successful
+        [[NSUserDefaults standardUserDefaults]setObject:tokenString forKey:@"DeviceTokenFinal"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+
+        NSLog(@"Success");
+    }
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(nonnull NSError *)error
@@ -68,12 +105,14 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    application.applicationIconBadgeNumber = 0;
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
@@ -82,10 +121,30 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+{
+    NSLog(@"User Info : %@",notification.request.content.userInfo);
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+    [self handleRemoteNotification:[UIApplication sharedApplication] userInfo:notification.request.content.userInfo];
+}
 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
+{
+    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+    completionHandler();
+    [self handleRemoteNotification:[UIApplication sharedApplication] userInfo:response.notification.request.content.userInfo];
+}
+
+-(void) handleRemoteNotification:(UIApplication *) application   userInfo:(NSDictionary *) remoteNotif
+{
+    NSLog(@"handleRemoteNotification");
+    NSLog(@"Handle Remote Notification Dictionary: %@", remoteNotif);
+    
+    // Handle Click of the Push Notification From Here…
+    // You can write a code to redirect user to specific screen of the app here….
+}
 @end

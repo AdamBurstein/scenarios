@@ -203,11 +203,16 @@ BOOL retrieveFiles = NO;
     NSString *removedWhiteSpaceString = [mstrXMLString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     removedWhiteSpaceString = [removedWhiteSpaceString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     removedWhiteSpaceString = [removedWhiteSpaceString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+
     if ([elementName isEqualToString:@"name"])
     {
         [scenarioDict setObject:removedWhiteSpaceString forKey:elementName];
     }
     else if ([elementName isEqualToString:@"text"])
+    {
+        [questionDict setObject:removedWhiteSpaceString forKey:elementName];
+    }
+    else if ([elementName isEqualToString:@"number"])
     {
         [questionDict setObject:removedWhiteSpaceString forKey:elementName];
     }

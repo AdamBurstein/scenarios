@@ -13,10 +13,13 @@
 		BF1C988B202B70240051F705 /* fileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9889202B70240051F705 /* fileIcon.png */; };
 		BF1C988C202B70240051F705 /* linkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C988A202B70240051F705 /* linkIcon.png */; };
 		BF1C988F202B7C210051F705 /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C988E202B7C210051F705 /* FileViewController.m */; };
-		BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; };
+		BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9895202C90290051F705 /* SettingsViewController.m */; };
 		BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
-		BFA5C879205A1669009FCA71 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BFA5C878205A1669009FCA71 /* scenarioData.xml */; };
+		BF5C5BD5205C2B7200681045 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF5C5BD4205C2B7200681045 /* scenarioData.xml */; };
+		BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */; };
+		BF629823205DC8BE00B799E7 /* NSString+MD5Addition.h in Sources */ = {isa = PBXBuildFile; fileRef = BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */; };
+		BF629825205DC8E300B799E7 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */; };
 		BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDB2023F31A00F7C120 /* AppDelegate.m */; };
 		BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */; };
 		BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE02023F31A00F7C120 /* Main.storyboard */; };
@@ -63,7 +66,12 @@
 		BF1C9894202C90290051F705 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		BF1C9895202C90290051F705 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BF1C9896202C90290051F705 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		BFA5C878205A1669009FCA71 /* scenarioData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scenarioData.xml; sourceTree = "<group>"; };
+		BF5C5BD4205C2B7200681045 /* scenarioData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = scenarioData.xml; path = ../../../../../Applications/MAMP/htdocs/scenarioData.xml; sourceTree = "<group>"; };
+		BF62981F205DC69400B799E7 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFC98BDB2023F31A00F7C120 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 		BF1C9884202A60C60051F705 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */,
 				BF1C9890202B96200051F705 /* PDFKit.framework */,
 				BF1C9885202A60C60051F705 /* SystemConfiguration.framework */,
 			);
@@ -159,7 +168,7 @@
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
-				BFA5C878205A1669009FCA71 /* scenarioData.xml */,
+				BF5C5BD4205C2B7200681045 /* scenarioData.xml */,
 				BF1C9888202B70170051F705 /* Images */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
 				BFC98BD82023F31A00F7C120 /* Products */,
@@ -192,6 +201,10 @@
 				BFC98BE52023F31A00F7C120 /* LaunchScreen.storyboard */,
 				BFC98BE82023F31A00F7C120 /* Info.plist */,
 				BFC98BE92023F31A00F7C120 /* main.m */,
+				BF62981F205DC69400B799E7 /* UIDevice+IdentifierAddition.h */,
+				BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */,
+				BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */,
+				BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */,
 			);
 			path = Scenarios;
 			sourceTree = "<group>";
@@ -337,9 +350,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1C988B202B70240051F705 /* fileIcon.png in Resources */,
-				BFA5C879205A1669009FCA71 /* scenarioData.xml in Resources */,
 				BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */,
 				BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */,
+				BF5C5BD5205C2B7200681045 /* scenarioData.xml in Resources */,
 				BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */,
 				BFC98BE42023F31A00F7C120 /* Assets.xcassets in Resources */,
 				BFCD1A7E203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */,
@@ -371,13 +384,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC98C0E2023F34100F7C120 /* SourceDataHandler.m in Sources */,
+				BF629823205DC8BE00B799E7 /* NSString+MD5Addition.h in Sources */,
 				BF1C98802029748A0051F705 /* InstructionViewController.m in Sources */,
 				BFC98C122024B76000F7C120 /* QuestionViewController.m in Sources */,
 				BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */,
+				BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */,
 				BF1C9883202A60A60051F705 /* Reachability.m in Sources */,
 				BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */,
 				BFC98BEA2023F31A00F7C120 /* main.m in Sources */,
 				BF1C988F202B7C210051F705 /* FileViewController.m in Sources */,
+				BF629825205DC8E300B799E7 /* NSString+MD5Addition.m in Sources */,
 				BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

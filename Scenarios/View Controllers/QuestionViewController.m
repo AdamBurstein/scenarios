@@ -60,7 +60,7 @@ UITableView *tView;
 {
     NSString *filepath = [[NSString alloc] init];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [dataDictionary valueForKey:@"name"]]];
+    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
     NSArray *array = [txtInFile componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; ++i)
@@ -202,7 +202,7 @@ UITableView *tView;
     }
     UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
-    [[cell textLabel] setNumberOfLines:6];
+    [[cell textLabel] setNumberOfLines:10];
     [[cell textLabel] setFont:font];
     [[cell textLabel] setText:[self getCellText:indexPath]];
     [[cell imageView] setImage:[self getCellImage:indexPath]];
@@ -354,26 +354,24 @@ UITableView *tView;
     return returnValue;
 }
 
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat cellHeight = 30;
-    NSString *cellText = [self getCellText:indexPath];
-
-    UIFont *font = [UIFont systemFontOfSize:18];
-    CGSize constraintSize = CGSizeMake(200, CGFLOAT_MAX);
-    
-    CGRect textRect = [cellText boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
-    CGSize size = textRect.size;
-    cellHeight += size.height;
-    return cellHeight;
-}
- */
-
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    if ([self.navigationItem.title isEqualToString:@"Emergency Contacts"])
+    {
+        NSDictionary *dict = [questions objectAtIndex:indexPath.row];
+        NSString *phoneNumber = [dict valueForKey:@"number"];
+        NSString *telephoneNumber = [NSString stringWithFormat:@"telprompt:%@", phoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneNumber] options:@{} completionHandler:nil];
+        return;
+    }
+    
+    if ([self.navigationItem.title isEqualToString:@"Instructions"])
+    {
+        return;
+    }
+                                                    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if ([self.tableView numberOfSections] == 1)
@@ -384,7 +382,8 @@ UITableView *tView;
             {
                 InstructionViewController *controller = [[InstructionViewController alloc] init];
                 controller.fullName = cell.textLabel.text;
-                controller.name = [NSString stringWithFormat:@"%@~%@", [dataDictionary valueForKey:@"name"], cell.textLabel.text];
+                controller.directoryName = cell.textLabel.text;
+                controller.name = [dataDictionary valueForKey:@"name"];
                 controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
                 [self.navigationController pushViewController:controller animated:YES];
             }
@@ -419,7 +418,9 @@ UITableView *tView;
         {
             InstructionViewController *controller = [[InstructionViewController alloc] init];
             controller.fullName = [dataDictionary valueForKey:@"name"];
-            controller.name = [NSString stringWithFormat:@"%@~%@", [dataDictionary valueForKey:@"name"], cell.textLabel.text];
+            controller.directoryName = cell.textLabel.text;
+            controller.name = [dataDictionary valueForKey:@"name"];
+            // [NSString stringWithFormat:@"%@~%@", [dataDictionary valueForKey:@"name"], cell.textLabel.text];
             controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
             [self.navigationController pushViewController:controller animated:YES];
         }
@@ -459,7 +460,7 @@ UITableView *tView;
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
-    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
+//    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
     return returnValue;
 }
 
@@ -519,7 +520,7 @@ UITableView *tView;
     NSString *filepath = [[NSString alloc] init];
     NSError *err;
     
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [dataDictionary valueForKey:@"name"]]];
+    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
 
     NSString *textToWrite = [[NSString alloc] init];
     for (id key in checkBoxes)

@@ -250,7 +250,7 @@ UIAlertController *pleaseWaitController;
     theString = [theString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
-    [[cell textLabel] setNumberOfLines:6];
+    [[cell textLabel] setNumberOfLines:10];
     [[cell textLabel] setFont:font];
 
     [[cell textLabel] setText:theString];
