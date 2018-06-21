@@ -1,12 +1,3 @@
-Last login: Thu Jun  7 17:39:00 on console
-Adams-MacBook:~ adamburstein$ cd /Applications/MAMP/htdocs/
-Adams-MacBook:htdocs adamburstein$ ls
-ScenariosXML.xml	s.xml			server.php
-apns-dev.pem		scenarioData.xml	test.php
-index.html		scenarioData.xml.old	tokenstrings.txt
-nextuserguide.pdf	sendAlert.html		userguide.pdf
-Adams-MacBook:htdocs adamburstein$ view scenarioData.xml
-Adams-MacBook:htdocs adamburstein$ more s.xml 
 <fulldata>
         <version>
                 <date>2018-06-06</date>
