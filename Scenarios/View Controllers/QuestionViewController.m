@@ -9,6 +9,7 @@
 #import "QuestionViewController.h"
 #import "InstructionViewController.h"
 #import "FileViewController.h"
+#import "MapViewController.h"
 
 @interface QuestionViewController ()
 
@@ -32,14 +33,21 @@ UITableView *tView;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = [dataDictionary valueForKey:@"name"];
+    @try
+    {
+        self.navigationItem.title = [dataDictionary valueForKey:@"name"];
+    }
+    @catch (NSException *exp)
+    {
+        self.navigationItem.title = @"Locations";
+    }
     checkBoxes = [[NSMutableDictionary alloc] init];
     [self readFromFile];
     questions = [dataDictionary valueForKey:@"questions"];
     links = [dataDictionary valueForKey:@"links"];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     
-    UIImage *bgImage = [UIImage imageNamed:@"PPR_1242x2208_GrayBG_AppLaunch.png"];
+    UIImage *bgImage = [UIImage imageNamed:@"WHMO AppLaunch-06 BLUE 3x.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
     imageView.alpha = 0.15;
     [self.tableView setBackgroundView:imageView];
@@ -369,6 +377,11 @@ UITableView *tView;
     
     if ([self.navigationItem.title isEqualToString:@"Instructions"])
     {
+        if (indexPath.row == [questions count]-1)
+        {
+            MapViewController *mvc = [[MapViewController alloc] init];
+            [self.navigationController pushViewController:mvc animated:YES];
+        }
         return;
     }
                                                     

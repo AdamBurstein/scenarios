@@ -47,7 +47,7 @@ NSMutableCharacterSet *nonAlphaNums;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 
-    UIImage *bgImage = [UIImage imageNamed:@"PPR_1242x2208_GrayBG_AppLaunch.png"];
+    UIImage *bgImage = [UIImage imageNamed:@"WHMO AppLaunch-06 BLUE 3x.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
     imageView.alpha = 0.15;
     [self.tableView setBackgroundView:imageView];

@@ -25,7 +25,7 @@
     
     NSString *fn = [self.GetDocumentDirectory stringByAppendingPathComponent:[self getDirectory]];
     NSData *data = [NSData dataWithContentsOfFile:fn];
-    NSURL *url = [NSURL fileURLWithPath:fn];
+//    NSURL *url = [NSURL fileURLWithPath:fn];
     PDFDocument *pdfDocument = [[PDFDocument alloc] initWithData:data];
     PDFView *pdfView = [[PDFView alloc] initWithFrame:[self.view frame]];
     pdfView.document = pdfDocument;
@@ -38,7 +38,7 @@
 
 -(NSString *)GetDocumentDirectory
 {
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     return homeDir;
 }

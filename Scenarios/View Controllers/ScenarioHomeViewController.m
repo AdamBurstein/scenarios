@@ -10,6 +10,7 @@
 #import "SourceDataHandler.h"
 #import "QuestionViewController.h"
 #import "SettingsViewController.h"
+#import "LocationsTableViewController.h"
 
 @interface ScenarioHomeViewController ()
 
@@ -55,7 +56,7 @@ NSMutableArray *scenariosArray;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    UIImage *bgImage = [UIImage imageNamed:@"PPR_1242x2208_GrayBG_AppLaunch.png"];
+    UIImage *bgImage = [UIImage imageNamed:@"WHMO AppLaunch-06 BLUE 3x.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
     imageView.alpha = 0.15;
     [self.tableView setBackgroundView:imageView];
@@ -64,7 +65,7 @@ NSMutableArray *scenariosArray;
     {
         scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
         
-        if ([[scenariosArray objectAtIndex:0] valueForKey:@"questions"] == nil)
+        if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
         {
             UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
@@ -197,7 +198,7 @@ UIAlertController *pleaseWaitController;
     scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
 //    [alertController dismissViewControllerAnimated:NO completion:nil];
 
-    if ([[scenariosArray objectAtIndex:0] valueForKey:@"questions"] == nil)
+    if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
     {
         UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
@@ -213,7 +214,7 @@ UIAlertController *pleaseWaitController;
 
 -(void)refreshData
 {
-    [self retrieveData:NO];
+    [self retrieveData:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -245,9 +246,12 @@ UIAlertController *pleaseWaitController;
     }
     NSDictionary *dict = [scenariosArray objectAtIndex:indexPath.row];
     NSString *theString = [dict valueForKey:@"name"];
+    if (indexPath.row == 0)
+        theString = @"Locations";
     theString = [theString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    theString = [theString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     UIFont *font = [UIFont systemFontOfSize:18];
     cell.layoutMargins = UIEdgeInsetsZero;
     [[cell textLabel] setNumberOfLines:10];
@@ -261,9 +265,19 @@ UIAlertController *pleaseWaitController;
 {
     NSDictionary *dict = [scenariosArray objectAtIndex:indexPath.row];
     QuestionViewController *nextController = [[QuestionViewController alloc] init];
+    LocationsTableViewController *locController = [[LocationsTableViewController alloc] init];
     [nextController setDataDictionary:dict];
-    [nextController setTitle:[dict valueForKey:@"name"]];
-    [self.navigationController pushViewController:nextController animated:YES];
+    [locController setDataDictionary:dict];
+    if (indexPath.row == 0)
+    {
+        [locController setTitle:@"Locations"];
+        [self.navigationController pushViewController:locController animated:YES];
+    }
+    else
+    {
+        [nextController setTitle:[dict valueForKey:@"name"]];
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
 }
