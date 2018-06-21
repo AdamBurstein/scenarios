@@ -48,7 +48,7 @@
 }
 
 -(NSString *)GetDocumentDirectory{
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     return homeDir;

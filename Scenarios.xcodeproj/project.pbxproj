@@ -18,7 +18,6 @@
 		BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
 		BF5C5BD5205C2B7200681045 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF5C5BD4205C2B7200681045 /* scenarioData.xml */; };
 		BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */; };
-		BF629823205DC8BE00B799E7 /* NSString+MD5Addition.h in Sources */ = {isa = PBXBuildFile; fileRef = BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */; };
 		BF629825205DC8E300B799E7 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */; };
 		BFC98BDC2023F31A00F7C120 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDB2023F31A00F7C120 /* AppDelegate.m */; };
 		BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */; };
@@ -33,6 +32,28 @@
 		BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */; };
 		BFCD1A7E203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */; };
 		BFCD1A7F203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */; };
+		BFDE21E3209A12BB0089E36F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDE21E1209A12BB0089E36F /* MapViewController.m */; };
+		BFDE21E4209A12BB0089E36F /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21E2209A12BB0089E36F /* MapViewController.xib */; };
+		BFDE21E6209A16880089E36F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDE21E5209A16880089E36F /* MapKit.framework */; };
+		BFDE21F5209A3CCF0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21E9209A3CCE0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png */; };
+		BFDE21F6209A3CCF0089E36F /* WHMO AppLaunch-02 GRAY 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EA209A3CCE0089E36F /* WHMO AppLaunch-02 GRAY 3x.png */; };
+		BFDE21F7209A3CCF0089E36F /* WHMO AppLaunch-01 GRAY 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EB209A3CCE0089E36F /* WHMO AppLaunch-01 GRAY 2x.png */; };
+		BFDE21F8209A3CCF0089E36F /* WHMO AppIcon-03 GRAY 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EC209A3CCE0089E36F /* WHMO AppIcon-03 GRAY 3x.png */; };
+		BFDE21F9209A3CCF0089E36F /* WHMO AppIcon-04 GRAY 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21ED209A3CCE0089E36F /* WHMO AppIcon-04 GRAY 2x.png */; };
+		BFDE21FA209A3CCF0089E36F /* WHMO AppIcon-07 BLUE 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EE209A3CCE0089E36F /* WHMO AppIcon-07 BLUE 3x.png */; };
+		BFDE21FB209A3CCF0089E36F /* WHMO AppIcon-08 BLUE 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EF209A3CCE0089E36F /* WHMO AppIcon-08 BLUE 2x.png */; };
+		BFDE21FC209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F0209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png */; };
+		BFDE21FD209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F1209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png */; };
+		BFDE21FE209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F2209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png */; };
+		BFDE21FF209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F3209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png */; };
+		BFDE2200209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F4209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png */; };
+		BFDE2202209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2201209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png */; };
+		BFDE2205209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2203209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png */; };
+		BFDE2208209A3F090089E36F /* WHMO AppIcon Notification 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2207209A3F090089E36F /* WHMO AppIcon Notification 2x.png */; };
+		BFDE220A209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */; };
+		BFDE220C209A40570089E36F /* WHMO AppIcon Notification 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */; };
+		BFDE220E209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */; };
+		BFF0C66520DB1E6D00FA96A6 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +117,30 @@
 		BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPRLogo_BlackGlobe.png; path = ../../../../Downloads/emailapprovedbydwhit/PPRLogo_BlackGlobe.png; sourceTree = "<group>"; };
 		BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPR_1242x2208_GrayBG_AppLaunch.png; path = ../../../../Downloads/emailapprovedbydwhit/PPR_1242x2208_GrayBG_AppLaunch.png; sourceTree = "<group>"; };
 		BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PPR_750x1334_GrayBG_AppLaunch.png; path = ../../../../Downloads/emailapprovedbydwhit/PPR_750x1334_GrayBG_AppLaunch.png; sourceTree = "<group>"; };
+		BFDE21E0209A12BB0089E36F /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		BFDE21E1209A12BB0089E36F /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		BFDE21E2209A12BB0089E36F /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		BFDE21E5209A16880089E36F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BFDE21E9209A3CCE0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-10 BLUEMONO 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-10 BLUEMONO 3x.png"; sourceTree = "<group>"; };
+		BFDE21EA209A3CCE0089E36F /* WHMO AppLaunch-02 GRAY 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-02 GRAY 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-02 GRAY 3x.png"; sourceTree = "<group>"; };
+		BFDE21EB209A3CCE0089E36F /* WHMO AppLaunch-01 GRAY 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-01 GRAY 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-01 GRAY 2x.png"; sourceTree = "<group>"; };
+		BFDE21EC209A3CCE0089E36F /* WHMO AppIcon-03 GRAY 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-03 GRAY 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-03 GRAY 3x.png"; sourceTree = "<group>"; };
+		BFDE21ED209A3CCE0089E36F /* WHMO AppIcon-04 GRAY 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-04 GRAY 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-04 GRAY 2x.png"; sourceTree = "<group>"; };
+		BFDE21EE209A3CCE0089E36F /* WHMO AppIcon-07 BLUE 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-07 BLUE 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-07 BLUE 3x.png"; sourceTree = "<group>"; };
+		BFDE21EF209A3CCE0089E36F /* WHMO AppIcon-08 BLUE 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-08 BLUE 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-08 BLUE 2x.png"; sourceTree = "<group>"; };
+		BFDE21F0209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-12 BLUEMONO 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-12 BLUEMONO 2x.png"; sourceTree = "<group>"; };
+		BFDE21F1209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-06 BLUE 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-06 BLUE 3x.png"; sourceTree = "<group>"; };
+		BFDE21F2209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-09 BLUEMONO 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-09 BLUEMONO 2x.png"; sourceTree = "<group>"; };
+		BFDE21F3209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppLaunch-05 BLUE 2x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppLaunch-05 BLUE 2x.png"; sourceTree = "<group>"; };
+		BFDE21F4209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-11 BLUEMONO 3x.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-11 BLUEMONO 3x.png"; sourceTree = "<group>"; };
+		BFDE2201209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WHMO AppIcon-08 BLUE 2x Spotlight.png"; path = "../../../../Downloads/graphicsemailapprovedbydwhit/WHMO AppIcon-08 BLUE 2x Spotlight.png"; sourceTree = "<group>"; };
+		BFDE2203209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppIcon Notification 3x.png"; sourceTree = "<group>"; };
+		BFDE2207209A3F090089E36F /* WHMO AppIcon Notification 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppIcon Notification 2x.png"; sourceTree = "<group>"; };
+		BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppLaunchIcon 1024.png"; sourceTree = "<group>"; };
+		BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppIcon Notification 58x58.png"; sourceTree = "<group>"; };
+		BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppIcon-07 BLUE 87x87.png"; sourceTree = "<group>"; };
+		BFF0C66320DB1E6D00FA96A6 /* LocationsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
+		BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDE21E6209A16880089E36F /* MapKit.framework in Frameworks */,
 				BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +174,7 @@
 		BF1C9884202A60C60051F705 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFDE21E5209A16880089E36F /* MapKit.framework */,
 				BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */,
 				BF1C9890202B96200051F705 /* PDFKit.framework */,
 				BF1C9885202A60C60051F705 /* SystemConfiguration.framework */,
@@ -149,6 +196,11 @@
 				BF1C9894202C90290051F705 /* SettingsViewController.h */,
 				BF1C9895202C90290051F705 /* SettingsViewController.m */,
 				BF1C9896202C90290051F705 /* SettingsViewController.xib */,
+				BFDE21E0209A12BB0089E36F /* MapViewController.h */,
+				BFDE21E1209A12BB0089E36F /* MapViewController.m */,
+				BFDE21E2209A12BB0089E36F /* MapViewController.xib */,
+				BFF0C66320DB1E6D00FA96A6 /* LocationsTableViewController.h */,
+				BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -156,6 +208,24 @@
 		BF1C9888202B70170051F705 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */,
+				BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */,
+				BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */,
+				BFDE2207209A3F090089E36F /* WHMO AppIcon Notification 2x.png */,
+				BFDE2203209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png */,
+				BFDE2201209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png */,
+				BFDE21EC209A3CCE0089E36F /* WHMO AppIcon-03 GRAY 3x.png */,
+				BFDE21ED209A3CCE0089E36F /* WHMO AppIcon-04 GRAY 2x.png */,
+				BFDE21EE209A3CCE0089E36F /* WHMO AppIcon-07 BLUE 3x.png */,
+				BFDE21EF209A3CCE0089E36F /* WHMO AppIcon-08 BLUE 2x.png */,
+				BFDE21F4209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png */,
+				BFDE21F0209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png */,
+				BFDE21EB209A3CCE0089E36F /* WHMO AppLaunch-01 GRAY 2x.png */,
+				BFDE21EA209A3CCE0089E36F /* WHMO AppLaunch-02 GRAY 3x.png */,
+				BFDE21F3209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png */,
+				BFDE21F1209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png */,
+				BFDE21F2209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png */,
+				BFDE21E9209A3CCE0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png */,
 				BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */,
 				BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */,
 				BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */,
@@ -300,7 +370,7 @@
 		BFC98BCF2023F31A00F7C120 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Adam Burstein";
 				TargetAttributes = {
 					BFC98BD62023F31A00F7C120 = {
@@ -349,16 +419,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDE21FC209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png in Resources */,
 				BF1C988B202B70240051F705 /* fileIcon.png in Resources */,
+				BFDE220E209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png in Resources */,
+				BFDE21FE209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png in Resources */,
+				BFDE21F9209A3CCF0089E36F /* WHMO AppIcon-04 GRAY 2x.png in Resources */,
+				BFDE21FB209A3CCF0089E36F /* WHMO AppIcon-08 BLUE 2x.png in Resources */,
 				BFCD1A7B203E7FBB00606C51 /* PPRLogo_BlackGlobe.png in Resources */,
 				BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */,
+				BFDE21FA209A3CCF0089E36F /* WHMO AppIcon-07 BLUE 3x.png in Resources */,
+				BFDE21F5209A3CCF0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png in Resources */,
 				BF5C5BD5205C2B7200681045 /* scenarioData.xml in Resources */,
 				BFC98BE72023F31A00F7C120 /* LaunchScreen.storyboard in Resources */,
 				BFC98BE42023F31A00F7C120 /* Assets.xcassets in Resources */,
+				BFDE21F6209A3CCF0089E36F /* WHMO AppLaunch-02 GRAY 3x.png in Resources */,
+				BFDE21FF209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png in Resources */,
+				BFDE21F7209A3CCF0089E36F /* WHMO AppLaunch-01 GRAY 2x.png in Resources */,
 				BFCD1A7E203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */,
+				BFDE2205209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png in Resources */,
 				BFC98BE22023F31A00F7C120 /* Main.storyboard in Resources */,
+				BFDE2208209A3F090089E36F /* WHMO AppIcon Notification 2x.png in Resources */,
 				BF1C988C202B70240051F705 /* linkIcon.png in Resources */,
+				BFDE220C209A40570089E36F /* WHMO AppIcon Notification 58x58.png in Resources */,
+				BFDE2202209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png in Resources */,
+				BFDE2200209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png in Resources */,
+				BFDE220A209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png in Resources */,
+				BFDE21E4209A12BB0089E36F /* MapViewController.xib in Resources */,
+				BFDE21FD209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png in Resources */,
 				BFCD1A7F203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */,
+				BFDE21F8209A3CCF0089E36F /* WHMO AppIcon-03 GRAY 3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,10 +473,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC98C0E2023F34100F7C120 /* SourceDataHandler.m in Sources */,
-				BF629823205DC8BE00B799E7 /* NSString+MD5Addition.h in Sources */,
 				BF1C98802029748A0051F705 /* InstructionViewController.m in Sources */,
 				BFC98C122024B76000F7C120 /* QuestionViewController.m in Sources */,
+				BFDE21E3209A12BB0089E36F /* MapViewController.m in Sources */,
 				BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */,
+				BFF0C66520DB1E6D00FA96A6 /* LocationsTableViewController.m in Sources */,
 				BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */,
 				BF1C9883202A60A60051F705 /* Reachability.m in Sources */,
 				BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */,
@@ -463,6 +553,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -470,6 +561,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -518,6 +610,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -525,6 +618,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
