@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *saveButton;
 @property (nonatomic, strong) IBOutlet UIButton *hideKeyboardButton;
 @property (nonatomic, strong) IBOutlet UIButton *cancelButton;
+@property (nonatomic, strong) IBOutlet UIImageView *bgImageView;
 
 -(IBAction)hideKeyboard:(id)sender;
 -(IBAction)clickSaveOrCancel:(id)sender;

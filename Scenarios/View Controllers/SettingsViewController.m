@@ -21,6 +21,7 @@
 @synthesize saveButton;
 @synthesize hideKeyboardButton;
 @synthesize cancelButton;
+@synthesize bgImageView;
 
 -(void)hideKeyboard:(id)sender
 {
@@ -31,6 +32,8 @@
     [super viewDidLoad];
     NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"versionData"];
     [xmlVersionLabel setText:[dictionary valueForKey:@"date"]];
+    
+    [self.navigationItem setTitle:@"Settings"];
     
     [appVersionLabel setText:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"]];
     
