@@ -26,13 +26,28 @@
 @synthesize instructionsArray;
 @synthesize fileDictionary;
 @synthesize versionDict;
+@synthesize locationsDict;
+@synthesize sublocationsArray;
+@synthesize location;
+@synthesize sublocation;
 
 NSFileManager *fileMgr;
 NSString *homeDir;
 NSString *filename;
 NSString *filepath;
 NSString *xmlString;
-NSString *remoteURL = @"http://10.17.124.192/scenarioData.xml";
+NSString *remoteURL = @"http://192.168.1.210/scenarioData.xml";
+NSString *locationName;
+NSString *locationDescription;
+NSString *locationLatitude;
+NSString *locationLongitude;
+NSString *sublocationName;
+NSString *sublocationDescription;
+NSString *sublocationLatitude;
+NSString *sublocationLongitude;
+
+BOOL isInLocationsList = NO;
+BOOL isInSublocation = NO;
 BOOL retrieveFiles = NO;
 
 #pragma mark - Methods Begin
@@ -163,13 +178,17 @@ BOOL retrieveFiles = NO;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(nonnull NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(nonnull NSDictionary<NSString *,NSString *> *)attributeDict
 {
-    if ([elementName isEqualToString:@"scenarios"]) {
+//    if ([elementName isEqualToString:@"scenarios"])
+//    {
+    if (scenariosArray == nil)
         scenariosArray = [[NSMutableArray alloc] init];
-    }
-    else if ([elementName isEqualToString:@"scenario"]) {
+//    }
+    if ([elementName isEqualToString:@"scenario"])
+    {
         scenarioDict = [[NSMutableDictionary alloc] init];
     }
-    else if ([elementName isEqualToString:@"questions"]) {
+    else if ([elementName isEqualToString:@"questions"])
+    {
         questionsArray = [[NSMutableArray alloc] init];
         questionDict = [[NSMutableDictionary alloc] init];
     }
@@ -177,7 +196,33 @@ BOOL retrieveFiles = NO;
     {
         versionDict = [[NSMutableDictionary alloc] init];
     }
-    else if ([elementName isEqualToString:@"supportingLinks"]) {
+    else if ([elementName isEqualToString:@"locationList"])
+    {
+        isInLocationsList = YES;
+        locationsDict = [[NSMutableDictionary alloc] init];
+    }
+    else if ([elementName isEqualToString:@"sublocationList"])
+    {
+        isInSublocation = YES;
+        if (sublocationsArray == nil)
+        {
+            sublocationsArray = [[NSMutableArray alloc] init];
+        }
+        else
+        {
+            [sublocationsArray removeAllObjects];
+        }
+    }
+    else if ([elementName isEqualToString:@"sublocation"])
+    {
+        sublocation = [[NSMutableDictionary alloc] init];
+    }
+    else if ([elementName isEqualToString:@"location"])
+    {
+        location = [[NSMutableDictionary alloc] init];
+    }
+    else if ([elementName isEqualToString:@"supportingLinks"])
+    {
         supportingLinks = [[NSMutableArray alloc] init];
         linkDict = [[NSMutableDictionary alloc] init];
         fileDictionary = [[NSMutableDictionary alloc] init];
@@ -203,8 +248,9 @@ BOOL retrieveFiles = NO;
     NSString *removedWhiteSpaceString = [mstrXMLString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     removedWhiteSpaceString = [removedWhiteSpaceString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     removedWhiteSpaceString = [removedWhiteSpaceString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    removedWhiteSpaceString = [removedWhiteSpaceString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-    if ([elementName isEqualToString:@"name"])
+    if (([elementName isEqualToString:@"name"]) && (!isInLocationsList))
     {
         [scenarioDict setObject:removedWhiteSpaceString forKey:elementName];
     }
@@ -265,6 +311,69 @@ BOOL retrieveFiles = NO;
         [scenarioDict setObject:[supportingLinks copy] forKey:@"links"];
         [supportingLinks removeAllObjects];
     }
+    else if ([elementName isEqualToString:@"name"])
+    {
+        if (isInSublocation)
+            sublocationName = removedWhiteSpaceString;
+        else
+            locationName = removedWhiteSpaceString;
+    }
+    else if ([elementName isEqualToString:@"description"])
+    {
+        if (isInSublocation)
+            sublocationDescription = removedWhiteSpaceString;
+        else
+            locationDescription = removedWhiteSpaceString;
+    }
+    else if ([elementName isEqualToString:@"latitude"])
+    {
+        if (isInSublocation)
+            sublocationLatitude = removedWhiteSpaceString;
+        else
+            locationLatitude = removedWhiteSpaceString;
+    }
+    else if ([elementName isEqualToString:@"longitude"])
+    {
+        if (isInSublocation)
+            sublocationLongitude = removedWhiteSpaceString;
+        else
+            locationLongitude = removedWhiteSpaceString;
+    }
+    else if ([elementName isEqualToString:@"location"])
+    {
+        [location setObject:locationName forKey:@"name"];
+        [location setObject:locationLatitude forKey:@"latitude"];
+        [location setObject:locationLongitude forKey:@"longitude"];
+        [location setObject:locationDescription forKey:@"description"];
+//        [location setObject:[sublocationsArray copy] forKey:@"sublocations"];
+        [locationsDict setObject:[location copy] forKey:locationName];
+        [sublocationsArray removeAllObjects];
+        [location removeAllObjects];
+
+    }
+    else if ([elementName isEqualToString:@"sublocation"])
+    {
+        if (isInSublocation)
+        {
+            [sublocation setObject:sublocationName forKey:@"name"];
+            [sublocation setObject:sublocationLatitude forKey:@"latitude"];
+            [sublocation setObject:sublocationLongitude forKey:@"longitude"];
+            [sublocation setObject:sublocationDescription forKey:@"description"];
+            [sublocationsArray addObject: [sublocation copy]];
+            [sublocation removeAllObjects];
+        }
+    }
+    else if ([elementName isEqualToString:@"sublocationList"])
+    {
+        [location setObject:[sublocationsArray copy] forKey:@"sublocations"];
+        isInSublocation = NO;
+    }
+    else if ([elementName isEqualToString:@"locationList"])
+    {
+        [scenariosArray addObject:[locationsDict copy]];
+        [locationsDict removeAllObjects];
+        isInLocationsList = NO;
+    }
 
     mstrXMLString = nil;
     [[NSUserDefaults standardUserDefaults] setObject:versionDict forKey:@"versionData"];
@@ -290,7 +399,8 @@ BOOL retrieveFiles = NO;
 {
     NSString *urlString = @"";
     
-    urlString = [self readFromFile:@"remoteURL.txt"];
+    //urlString = [self readFromFile:@"remoteURL.txt"];
+    urlString = @"http://172.20.10.9/scenarioData.xml";
     if ((urlString == nil) || ([urlString isEqualToString:@""]))
         urlString = remoteURL;
     NSURL *url = [NSURL URLWithString:urlString];

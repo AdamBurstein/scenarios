@@ -24,6 +24,11 @@
 @property (nonatomic, strong) NSMutableArray *instructionsArray;
 @property (nonatomic, strong) NSMutableDictionary *fileDictionary;
 @property (nonatomic, strong) NSMutableDictionary *versionDict;
+@property (nonatomic, strong) NSMutableDictionary *locationsDict;
+@property (nonatomic, strong) NSMutableArray *sublocationsArray;
+@property (nonatomic, strong) NSMutableDictionary *sublocation;
+@property (nonatomic, strong) NSMutableDictionary *location;
+
 @end
 
 #endif /* SourceDataHandler_h */
