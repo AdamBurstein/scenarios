@@ -38,7 +38,6 @@ NSMutableCharacterSet *nonAlphaNums;
     [nonAlphaNums removeCharactersInString:@" "];
     [nonAlphaNums removeCharactersInString:@"_"];
     [nonAlphaNums removeCharactersInString:@"-"];
-//    [nonAlphaNums removeCharactersInString:@"~"];
     NSString *newString = [[name componentsSeparatedByCharactersInSet:nonAlphaNums] componentsJoinedByString:@""];
     newString = [newString stringByAppendingFormat:@"~%@", directoryName];
     [self setName:newString];
@@ -60,17 +59,10 @@ NSMutableCharacterSet *nonAlphaNums;
     tview.estimatedRowHeight = 44;
     tview.layoutMargins = UIEdgeInsetsZero;
     tview.separatorInset = UIEdgeInsetsZero;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -159,51 +151,6 @@ NSMutableCharacterSet *nonAlphaNums;
     return cell;
 }
 
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 -(NSString *)formatName:(NSString *)name
 {
     NSString *returnValue = [NSString stringWithString:name];
@@ -211,10 +158,8 @@ NSMutableCharacterSet *nonAlphaNums;
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
-//    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
     return returnValue;
 }
-
 
 -(void)WriteToStringFile
 {
@@ -239,7 +184,6 @@ NSMutableCharacterSet *nonAlphaNums;
 }
 
 -(NSString *)GetDocumentDirectory{
-    //    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     return homeDir;

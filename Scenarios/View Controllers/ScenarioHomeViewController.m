@@ -39,8 +39,6 @@ NSMutableArray *scenariosArray;
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0]];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     
-    
-    // Do any additional setup after loading the view, typically from a nib.
     scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
     [self.tableView reloadData];
 }
@@ -97,7 +95,6 @@ NSMutableArray *scenariosArray;
         {
             foundOne = YES;
             NSString *thisFile = [filepath stringByAppendingPathComponent:filename];
-            //NSFileManager *fileManager = [NSFileManager defaultManager];
             BOOL success = [fileManager removeItemAtPath:thisFile error:&err];
             if (success)
             {
@@ -129,7 +126,6 @@ NSMutableArray *scenariosArray;
 }
 
 -(NSString *)GetDocumentDirectory{
-    //    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     return homeDir;
@@ -185,9 +181,6 @@ UIAlertController *pleaseWaitController;
 
 -(void)retrieveData:(BOOL)withForce
 {
-//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Please Wait" message:@"Please wait while we refresh your data" preferredStyle:UIAlertControllerStyleAlert];
-//    [self presentViewController:alertController animated:YES completion:nil];
-    
     SourceDataHandler *handler = [[SourceDataHandler alloc] init];
     if (withForce)
         [handler forceParseXMLData];
@@ -196,7 +189,6 @@ UIAlertController *pleaseWaitController;
         
         
     scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
-//    [alertController dismissViewControllerAnimated:NO completion:nil];
 
     if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
     {
@@ -214,12 +206,11 @@ UIAlertController *pleaseWaitController;
 
 -(void)refreshData
 {
-    [self retrieveData:YES];
+    [self retrieveData:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

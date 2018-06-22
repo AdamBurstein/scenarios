@@ -92,6 +92,24 @@
 		BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
 		BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		BF6DC4CB20DBEE17006422B1 /* Emergency Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Emergency Contacts.png"; sourceTree = "<group>"; };
+		BF6DC4CC20DBEE17006422B1 /* Instructions to Specific Locations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instructions to Specific Locations.png"; sourceTree = "<group>"; };
+		BF6DC4CD20DBEE17006422B1 /* Locations Listing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Locations Listing.png"; sourceTree = "<group>"; };
+		BF6DC4CE20DBEE17006422B1 /* Cyber Threat - No Selections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cyber Threat - No Selections.png"; sourceTree = "<group>"; };
+		BF6DC4CF20DBEE17006422B1 /* Cyber Threat - One Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cyber Threat - One Selected.png"; sourceTree = "<group>"; };
+		BF6DC4D020DBEE17006422B1 /* Home Screen - App Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home Screen - App Icon.png"; sourceTree = "<group>"; };
+		BF6DC4D120DBEE17006422B1 /* Apple Maps of Location for Navigation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple Maps of Location for Navigation.png"; sourceTree = "<group>"; };
+		BF6DC4D220DBEE17006422B1 /* Dialing WHSR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dialing WHSR.png"; sourceTree = "<group>"; };
+		BF6DC4D320DBEE17006422B1 /* Home Screen - In App.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home Screen - In App.png"; sourceTree = "<group>"; };
+		BF6DC4D420DBEE17006422B1 /* Map View of Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map View of Location.png"; sourceTree = "<group>"; };
+		BF6DC4D520DBEE18006422B1 /* Critical Infrastructure - Multiple Selections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Critical Infrastructure - Multiple Selections.png"; sourceTree = "<group>"; };
+		BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "All Scenario Reset.png"; sourceTree = "<group>"; };
+		BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings No Keyboard.PNG"; sourceTree = "<group>"; };
+		BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Keyboard.PNG"; sourceTree = "<group>"; };
+		BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scenarios.ipa; sourceTree = "<group>"; };
+		BF8C4B1720DCAFA3000F8A67 /* Packaging.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = Packaging.log; sourceTree = "<group>"; };
+		BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
+		BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DistributionSummary.plist; sourceTree = "<group>"; };
 		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,16 +253,66 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		BF6DC4CA20DBEDD0006422B1 /* Screen Captures */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */,
+				BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */,
+				BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */,
+				BF6DC4D120DBEE17006422B1 /* Apple Maps of Location for Navigation.png */,
+				BF6DC4D520DBEE18006422B1 /* Critical Infrastructure - Multiple Selections.png */,
+				BF6DC4CE20DBEE17006422B1 /* Cyber Threat - No Selections.png */,
+				BF6DC4CF20DBEE17006422B1 /* Cyber Threat - One Selected.png */,
+				BF6DC4D220DBEE17006422B1 /* Dialing WHSR.png */,
+				BF6DC4CB20DBEE17006422B1 /* Emergency Contacts.png */,
+				BF6DC4D020DBEE17006422B1 /* Home Screen - App Icon.png */,
+				BF6DC4D320DBEE17006422B1 /* Home Screen - In App.png */,
+				BF6DC4CC20DBEE17006422B1 /* Instructions to Specific Locations.png */,
+				BF6DC4CD20DBEE17006422B1 /* Locations Listing.png */,
+				BF6DC4D420DBEE17006422B1 /* Map View of Location.png */,
+			);
+			path = "Screen Captures";
+			sourceTree = "<group>";
+		};
+		BF8C4B1320DCAF6C000F8A67 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C4B1420DCAF7C000F8A67 /* 1.0 */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
+		BF8C4B1420DCAF7C000F8A67 /* 1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C4B1520DCAF85000F8A67 /* beta */,
+			);
+			path = 1.0;
+			sourceTree = "<group>";
+		};
+		BF8C4B1520DCAF85000F8A67 /* beta */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */,
+				BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */,
+				BF8C4B1720DCAFA3000F8A67 /* Packaging.log */,
+				BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */,
+			);
+			path = beta;
+			sourceTree = "<group>";
+		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
-				BF5C5BD4205C2B7200681045 /* scenarioData.xml */,
-				BF1C9888202B70170051F705 /* Images */,
+				BF8C4B1320DCAF6C000F8A67 /* Release */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
+				BF1C9888202B70170051F705 /* Images */,
 				BFC98BD82023F31A00F7C120 /* Products */,
+				BF5C5BD4205C2B7200681045 /* scenarioData.xml */,
 				BFC98BD92023F31A00F7C120 /* Scenarios */,
 				BFC98BF22023F31A00F7C120 /* ScenariosTests */,
 				BFC98BFD2023F31A00F7C120 /* ScenariosUITests */,
+				BF6DC4CA20DBEDD0006422B1 /* Screen Captures */,
 			);
 			sourceTree = "<group>";
 		};

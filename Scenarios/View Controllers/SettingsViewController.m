@@ -48,8 +48,6 @@
 
 - (IBAction)clickSaveOrCancel:(id)sender
 {
-//    UIAlertController *controller;
-//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
     if (sender == cancelButton)
     {
         [self.navigationController popViewControllerAnimated:YES];
@@ -96,7 +94,6 @@
 }
 
 -(NSString *)GetDocumentDirectory{
-    //    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     return homeDir;
@@ -106,16 +103,5 @@
 {
     [remoteURLField becomeFirstResponder];
 }
-
-/*
- 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

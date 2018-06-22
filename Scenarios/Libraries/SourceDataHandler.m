@@ -76,14 +76,6 @@ BOOL retrieveFiles = NO;
     NSError *err;
     
     filepath = [self GetDocumentDirectory];
-//    for (int i = 0; i < [path count]; ++i)
-//    {
-//        filepath = [filepath stringByAppendingPathComponent:[path objectAtIndex:i]];
-//    }
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:filepath])
-//    {
-//        [[NSFileManager defaultManager] createDirectoryAtPath:filepath withIntermediateDirectories:YES attributes:nil error:nil];
-//    }
     filepath = [filepath stringByAppendingPathComponent:file];
 
     BOOL ok = [data writeToFile:filepath atomically:YES];
@@ -116,7 +108,6 @@ BOOL retrieveFiles = NO;
             NSDictionary *linkDict = [links objectAtIndex:j];
             if ([linkDict objectForKey:@"fileurl"] != nil)
             {
-                //NSData *data = [self downloadFileWithString:[linkDict valueForKey:@"fileurl"]];
                 NSString *fileName =  [linkDict valueForKey:@"fileurl"];
                 fileName = [fileName stringByReplacingOccurrencesOfString:@"http://" withString:@""];
                 fileName = [fileName stringByReplacingOccurrencesOfString:@"https://" withString:@""];
@@ -178,11 +169,10 @@ BOOL retrieveFiles = NO;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(nonnull NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(nonnull NSDictionary<NSString *,NSString *> *)attributeDict
 {
-//    if ([elementName isEqualToString:@"scenarios"])
-//    {
-    if (scenariosArray == nil)
+    if ([elementName isEqualToString:@"scenarios"])
+    {
         scenariosArray = [[NSMutableArray alloc] init];
-//    }
+    }
     if ([elementName isEqualToString:@"scenario"])
     {
         scenarioDict = [[NSMutableDictionary alloc] init];
@@ -399,8 +389,8 @@ BOOL retrieveFiles = NO;
 {
     NSString *urlString = @"";
     
-    //urlString = [self readFromFile:@"remoteURL.txt"];
-    urlString = @"http://172.20.10.9/scenarioData.xml";
+    urlString = [self readFromFile:@"remoteURL.txt"];
+    
     if ((urlString == nil) || ([urlString isEqualToString:@""]))
         urlString = remoteURL;
     NSURL *url = [NSURL URLWithString:urlString];

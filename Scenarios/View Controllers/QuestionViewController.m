@@ -433,7 +433,6 @@ UITableView *tView;
             controller.fullName = [dataDictionary valueForKey:@"name"];
             controller.directoryName = cell.textLabel.text;
             controller.name = [dataDictionary valueForKey:@"name"];
-            // [NSString stringWithFormat:@"%@~%@", [dataDictionary valueForKey:@"name"], cell.textLabel.text];
             controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
             [self.navigationController pushViewController:controller animated:YES];
         }
@@ -473,7 +472,6 @@ UITableView *tView;
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"/" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
     returnValue = [returnValue stringByReplacingOccurrencesOfString:@"_" withString:@""];
-//    returnValue = [returnValue stringByReplacingOccurrencesOfString:@"~" withString:@""];
     return returnValue;
 }
 
@@ -494,7 +492,6 @@ UITableView *tView;
         {
             foundOne = YES;
             NSString *thisFile = [filepath stringByAppendingPathComponent:filename];
-            //NSFileManager *fileManager = [NSFileManager defaultManager];
             BOOL success = [fileManager removeItemAtPath:thisFile error:&err];
             if (success)
             {
@@ -551,7 +548,6 @@ UITableView *tView;
 }
 
 -(NSString *)GetDocumentDirectory{
-//    NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSString *homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     return homeDir;
