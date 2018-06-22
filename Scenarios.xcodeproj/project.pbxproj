@@ -106,10 +106,6 @@
 		BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "All Scenario Reset.png"; sourceTree = "<group>"; };
 		BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings No Keyboard.PNG"; sourceTree = "<group>"; };
 		BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Keyboard.PNG"; sourceTree = "<group>"; };
-		BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scenarios.ipa; sourceTree = "<group>"; };
-		BF8C4B1720DCAFA3000F8A67 /* Packaging.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = Packaging.log; sourceTree = "<group>"; };
-		BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
-		BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DistributionSummary.plist; sourceTree = "<group>"; };
 		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -226,10 +222,6 @@
 		BF1C9888202B70170051F705 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */,
-				BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */,
-				BF8C4B1720DCAFA3000F8A67 /* Packaging.log */,
-				BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */,
 				BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */,
 				BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */,
 				BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */,
