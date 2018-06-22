@@ -226,6 +226,10 @@
 		BF1C9888202B70170051F705 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */,
+				BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */,
+				BF8C4B1720DCAFA3000F8A67 /* Packaging.log */,
+				BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */,
 				BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */,
 				BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */,
 				BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */,
@@ -274,37 +278,9 @@
 			path = "Screen Captures";
 			sourceTree = "<group>";
 		};
-		BF8C4B1320DCAF6C000F8A67 /* Release */ = {
-			isa = PBXGroup;
-			children = (
-				BF8C4B1420DCAF7C000F8A67 /* 1.0 */,
-			);
-			path = Release;
-			sourceTree = "<group>";
-		};
-		BF8C4B1420DCAF7C000F8A67 /* 1.0 */ = {
-			isa = PBXGroup;
-			children = (
-				BF8C4B1520DCAF85000F8A67 /* beta */,
-			);
-			path = 1.0;
-			sourceTree = "<group>";
-		};
-		BF8C4B1520DCAF85000F8A67 /* beta */ = {
-			isa = PBXGroup;
-			children = (
-				BF8C4B1920DCAFA3000F8A67 /* DistributionSummary.plist */,
-				BF8C4B1820DCAFA3000F8A67 /* ExportOptions.plist */,
-				BF8C4B1720DCAFA3000F8A67 /* Packaging.log */,
-				BF8C4B1620DCAFA3000F8A67 /* Scenarios.ipa */,
-			);
-			path = beta;
-			sourceTree = "<group>";
-		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
-				BF8C4B1320DCAF6C000F8A67 /* Release */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
 				BF1C9888202B70170051F705 /* Images */,
 				BFC98BD82023F31A00F7C120 /* Products */,
