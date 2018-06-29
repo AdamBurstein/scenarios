@@ -54,11 +54,13 @@ NSArray *sortedKeys;
 {
     if ([MFMailComposeViewController canSendMail])
     {
+        NSDictionary *supportDictionary = [[NSUserDefaults standardUserDefaults] valueForKey:@"versionData"];
+        NSString *supportEmail = [supportDictionary valueForKey:@"supportEmail"];
         MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
         mcvc.mailComposeDelegate = self;
-        [mcvc setToRecipients:[NSArray arrayWithObjects:@"aburstein@oa.eop.gov", nil]];
+        [mcvc setToRecipients:[NSArray arrayWithObjects:supportEmail, nil]];
         [mcvc setSubject:@"Debug Log"];
-        NSString *errorMessage = [NSString stringWithFormat:@"\n\n\nPlease feel free to add notes above this line, but do not make any changes below this point.%@\n\n\n==========\n\n\n@\%@",
+        NSString *errorMessage = [NSString stringWithFormat:@"\n\n\nPlease feel free to add notes above this line, but do not make any changes below this point.\n\n%@\n\n\n==========\n\n\n@\%@",
                                   [[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"],
                                   [[NSUserDefaults standardUserDefaults] valueForKey:@"scenarios"]];
         [mcvc setMessageBody:errorMessage isHTML:NO];
