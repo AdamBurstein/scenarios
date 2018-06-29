@@ -48,6 +48,23 @@ NSArray *sortedKeys;
     [self.tableView reloadData];
 }
 
+-(void)sendLogs
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
+        mcvc.mailComposeDelegate = self;
+        [mcvc setToRecipients:[NSArray arrayWithObjects:@"aburstein@oa.eop.gov", nil]];
+        [mcvc setSubject:@"Debug Log"];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@\n\n\n==========\n\n\n@\%@",
+                                  [[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"],
+                                  [[NSUserDefaults standardUserDefaults] valueForKey:@"scenarios"]];
+        [mcvc setMessageBody:[[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"] isHTML:NO];
+        [mcvc setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+        [self presentViewController:mcvc animated:YES completion:nil];
+    }
+}
+
 -(void)configure
 {
     
@@ -75,7 +92,11 @@ NSArray *sortedKeys;
             UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
             UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                         {[self configure];}];
+            UIAlertAction *sendDebugAction = [UIAlertAction actionWithTitle:@"Send Logs" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                              {[self sendLogs];}];
+
             [alertController2 addAction:noAction];
+            [alertController2 addAction:sendDebugAction];
             [alertController2 addAction:yesAction];
             [self presentViewController:alertController2 animated:YES completion:nil];
         }
@@ -202,9 +223,12 @@ UIAlertController *pleaseWaitController;
     {
         UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *sendDebugAction = [UIAlertAction actionWithTitle:@"Send Logs" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                    {[self sendLogs];}];
         UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                     {[self configure];}];
         [alertController2 addAction:noAction];
+        [alertController2 addAction:sendDebugAction];
         [alertController2 addAction:yesAction];
         [self presentViewController:alertController2 animated:YES completion:nil];
     }
@@ -287,6 +311,36 @@ UIAlertController *pleaseWaitController;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate Methode.
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
+    
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            
+            break;
+            
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            
+            break;
+            
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            
+            break;
+            
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@",error.description);
+            
+            break;
+    }
+    
+    // Dismiss the mail compose view controller.
+    [controller dismissViewControllerAnimated:true completion:nil];
+    
 }
 @end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF06388920E5DA9A00401A8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF06388820E5DA9A00401A8C /* MessageUI.framework */; };
 		BF1C98802029748A0051F705 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C987F2029748A0051F705 /* InstructionViewController.m */; };
 		BF1C9883202A60A60051F705 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9882202A60A60051F705 /* Reachability.m */; };
 		BF1C9886202A60C60051F705 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9885202A60C60051F705 /* SystemConfiguration.framework */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF06388820E5DA9A00401A8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BF1C987E2029748A0051F705 /* InstructionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstructionViewController.h; sourceTree = "<group>"; };
 		BF1C987F2029748A0051F705 /* InstructionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
 		BF1C9881202A60A60051F705 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../../Downloads/Reachability-master/Reachability.h"; sourceTree = "<group>"; };
@@ -107,10 +109,6 @@
 		BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "All Scenario Reset.png"; sourceTree = "<group>"; };
 		BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings No Keyboard.PNG"; sourceTree = "<group>"; };
 		BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Keyboard.PNG"; sourceTree = "<group>"; };
-		BF8C4B1B20DCB430000F8A67 /* Scenarios.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scenarios.ipa; sourceTree = "<group>"; };
-		BF8C4B1C20DCB430000F8A67 /* Packaging.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = Packaging.log; sourceTree = "<group>"; };
-		BF8C4B1D20DCB430000F8A67 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
-		BF8C4B1E20DCB430000F8A67 /* DistributionSummary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DistributionSummary.plist; sourceTree = "<group>"; };
 		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF06388920E5DA9A00401A8C /* MessageUI.framework in Frameworks */,
 				BFDE21E6209A16880089E36F /* MapKit.framework in Frameworks */,
 				BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */,
 			);
@@ -195,6 +194,7 @@
 		BF1C9884202A60C60051F705 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF06388820E5DA9A00401A8C /* MessageUI.framework */,
 				BFDE21E5209A16880089E36F /* MapKit.framework */,
 				BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */,
 				BF1C9890202B96200051F705 /* PDFKit.framework */,
@@ -279,21 +279,9 @@
 			path = "Screen Captures";
 			sourceTree = "<group>";
 		};
-		BF8C4B1A20DCB405000F8A67 /* Release */ = {
-			isa = PBXGroup;
-			children = (
-				BF8C4B1E20DCB430000F8A67 /* DistributionSummary.plist */,
-				BF8C4B1D20DCB430000F8A67 /* ExportOptions.plist */,
-				BF8C4B1C20DCB430000F8A67 /* Packaging.log */,
-				BF8C4B1B20DCB430000F8A67 /* Scenarios.ipa */,
-			);
-			path = Release;
-			sourceTree = "<group>";
-		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
-				BF8C4B1A20DCB405000F8A67 /* Release */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
 				BF1C9888202B70170051F705 /* Images */,
 				BFC98BD82023F31A00F7C120 /* Products */,

@@ -145,6 +145,7 @@ int contactStep = 0;
 {
     
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[xmlString dataUsingEncoding:NSUTF8StringEncoding]];
+    [[NSUserDefaults standardUserDefaults] setObject:xmlString forKey:@"xmlString"];
     
     [xmlParser setDelegate:self];
     [xmlParser parse];

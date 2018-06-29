@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ScenarioHomeViewController : UITableViewController
+@interface ScenarioHomeViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 -(void)refreshData;
 @property (nonatomic) Reachability *hostReachability;
