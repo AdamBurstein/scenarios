@@ -16,20 +16,28 @@
 
 @implementation SourceDataHandler
 
+@synthesize dictData;
 @synthesize scenariosArray;
+@synthesize scenariosDict;
 @synthesize mstrXMLString;
 @synthesize scenarioDict;
 @synthesize questionsArray;
-@synthesize questionDict;
+@synthesize questionsDict;
 @synthesize supportingLinks;
+@synthesize supportingLinksDict;
 @synthesize linkDict;
+@synthesize questionDict;
 @synthesize instructionsArray;
+@synthesize instructionsDict;
+@synthesize emergencyContactDict;
 @synthesize fileDictionary;
 @synthesize versionDict;
 @synthesize locationsDict;
 @synthesize sublocationsArray;
-@synthesize location;
+@synthesize sublocationsDict;
 @synthesize sublocation;
+@synthesize location;
+@synthesize contactDict;
 
 NSFileManager *fileMgr;
 NSString *homeDir;
@@ -47,8 +55,17 @@ NSString *sublocationLatitude;
 NSString *sublocationLongitude;
 
 BOOL isInLocationsList = NO;
+BOOL isInLocation = NO;
 BOOL isInSublocation = NO;
 BOOL retrieveFiles = NO;
+BOOL isInContact = NO;
+BOOL isInEmergencyContact = NO;
+
+int instructionsStep = 0;
+int questionStep = 0;
+int scenarioStep = 0;
+int sublocationStep = 0;
+int contactStep = 0;
 
 #pragma mark - Methods Begin
 
@@ -131,7 +148,7 @@ BOOL retrieveFiles = NO;
     
     [xmlParser setDelegate:self];
     [xmlParser parse];
-    [[NSUserDefaults standardUserDefaults] setObject:scenariosArray forKey:@"scenarios"];
+    [[NSUserDefaults standardUserDefaults] setObject:scenariosDict forKey:@"scenarios"];
 
     if (retrieveFiles)
         [self doFileDownloads];
@@ -169,9 +186,10 @@ BOOL retrieveFiles = NO;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(nonnull NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(nonnull NSDictionary<NSString *,NSString *> *)attributeDict
 {
-    if ([elementName isEqualToString:@"scenarios"])
+    if ([elementName isEqualToString:@"fulldata"])
     {
         scenariosArray = [[NSMutableArray alloc] init];
+        scenariosDict = [[NSMutableDictionary alloc] init];
     }
     if ([elementName isEqualToString:@"scenario"])
     {
@@ -180,6 +198,7 @@ BOOL retrieveFiles = NO;
     else if ([elementName isEqualToString:@"questions"])
     {
         questionsArray = [[NSMutableArray alloc] init];
+        questionsDict = [[NSMutableDictionary alloc] init];
         questionDict = [[NSMutableDictionary alloc] init];
     }
     else if ([elementName isEqualToString:@"version"])
@@ -197,11 +216,23 @@ BOOL retrieveFiles = NO;
         if (sublocationsArray == nil)
         {
             sublocationsArray = [[NSMutableArray alloc] init];
+            sublocationsDict = [[NSMutableDictionary alloc] init];
         }
         else
         {
             [sublocationsArray removeAllObjects];
+            [sublocationsDict removeAllObjects];
         }
+    }
+    else if ([elementName isEqualToString:@"contact"])
+    {
+        contactDict = [[NSMutableDictionary alloc] init];
+        isInContact = YES;
+    }
+    else if ([elementName isEqualToString:@"emergencyContacts"])
+    {
+        emergencyContactDict = [[NSMutableDictionary alloc] init];
+        isInEmergencyContact = YES;
     }
     else if ([elementName isEqualToString:@"sublocation"])
     {
@@ -210,16 +241,19 @@ BOOL retrieveFiles = NO;
     else if ([elementName isEqualToString:@"location"])
     {
         location = [[NSMutableDictionary alloc] init];
+        isInLocation = YES;
     }
     else if ([elementName isEqualToString:@"supportingLinks"])
     {
         supportingLinks = [[NSMutableArray alloc] init];
+        supportingLinksDict = [[NSMutableDictionary alloc] init];
         linkDict = [[NSMutableDictionary alloc] init];
         fileDictionary = [[NSMutableDictionary alloc] init];
     }
     else if ([elementName isEqualToString:@"instructions"])
     {
         instructionsArray = [[NSMutableArray alloc] init];
+        instructionsDict = [[NSMutableDictionary alloc] init];
     }
 }
 
@@ -240,9 +274,42 @@ BOOL retrieveFiles = NO;
     removedWhiteSpaceString = [removedWhiteSpaceString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     removedWhiteSpaceString = [removedWhiteSpaceString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-    if (([elementName isEqualToString:@"name"]) && (!isInLocationsList))
+    if ([elementName isEqualToString:@"name"])
     {
-        [scenarioDict setObject:removedWhiteSpaceString forKey:elementName];
+        if (isInContact)
+        {
+            [contactDict setValue:removedWhiteSpaceString forKey:@"name"];
+        }
+        else if (isInSublocation)
+        {
+            sublocationName = removedWhiteSpaceString;
+        }
+        else if (isInLocation)
+        {
+            locationName = removedWhiteSpaceString;
+        }
+        else if (isInEmergencyContact)
+        {
+            [emergencyContactDict setValue:removedWhiteSpaceString forKey:@"name"];
+            isInEmergencyContact = NO;
+        }
+        else if (isInLocationsList)
+        {
+            [locationsDict setValue:removedWhiteSpaceString forKey:@"name"];
+        }
+        else
+        {
+            [scenarioDict setObject:removedWhiteSpaceString forKey:elementName];
+
+        }
+    }
+    else if ([elementName isEqualToString:@"fulldata"])
+    {
+        instructionsStep = 0;
+        questionStep = 0;
+        scenarioStep = 0;
+        sublocationStep = 0;
+        contactStep = 0;
     }
     else if ([elementName isEqualToString:@"text"])
     {
@@ -250,18 +317,26 @@ BOOL retrieveFiles = NO;
     }
     else if ([elementName isEqualToString:@"number"])
     {
-        [questionDict setObject:removedWhiteSpaceString forKey:elementName];
+        [contactDict setObject:removedWhiteSpaceString forKey:elementName];
     }
     else if ([elementName isEqualToString:@"step"])
     {
         [instructionsArray addObject:removedWhiteSpaceString];
+        [instructionsDict setValue:removedWhiteSpaceString forKey:[NSString stringWithFormat:@"step%d", instructionsStep]];
+        ++instructionsStep;
     }
     else if ([elementName isEqualToString:@"scenario"])
     {
         if (questionsArray != nil)
             [scenarioDict setObject:[questionsArray copy] forKey:@"questions"];
         [scenariosArray addObject:[scenarioDict copy]];
+        [scenariosDict setValue:[scenarioDict copy] forKey:[NSString stringWithFormat:@"scenario%d", scenarioStep]];
+        ++scenarioStep;
         [scenarioDict removeAllObjects];
+    }
+    else if ([elementName isEqualToString:@"questions"])
+    {
+        questionStep = 0;
     }
     else if ([elementName isEqualToString:@"date"] ||
              [elementName isEqualToString:@"supportEmail"] ||
@@ -271,10 +346,26 @@ BOOL retrieveFiles = NO;
     }
     else if ([elementName isEqualToString:@"instructions"])
     {
-        [questionDict setObject:[instructionsArray copy] forKey:@"instructions"];
+        [questionDict setObject:[instructionsDict copy] forKey:@"instructions"];
+        
+        instructionsStep = 0;
+    }
+    else if ([elementName isEqualToString:@"contact"])
+    {
+        [emergencyContactDict setObject:[contactDict copy] forKey:[NSString stringWithFormat:@"contact%d", contactStep]];
+        ++contactStep;
+        [contactDict removeAllObjects];
+    }
+    else if ([elementName isEqualToString:@"emergencyContacts"])
+    {
+        [scenariosDict setObject:[emergencyContactDict copy] forKey:@"01emergencyContacts"];
+        [emergencyContactDict removeAllObjects];
+        isInContact = NO;
     }
     else if ([elementName isEqualToString:@"question"])
     {
+        [questionsDict setValue:[questionDict copy] forKey:[NSString stringWithFormat:@"question%d", questionStep]];
+        ++questionStep;
         [questionsArray addObject:[questionDict copy]];
         [questionDict removeAllObjects];
     }
@@ -339,6 +430,7 @@ BOOL retrieveFiles = NO;
         [locationsDict setObject:[location copy] forKey:locationName];
         [sublocationsArray removeAllObjects];
         [location removeAllObjects];
+        isInLocation = NO;
 
     }
     else if ([elementName isEqualToString:@"sublocation"])
@@ -349,6 +441,8 @@ BOOL retrieveFiles = NO;
             [sublocation setObject:sublocationLatitude forKey:@"latitude"];
             [sublocation setObject:sublocationLongitude forKey:@"longitude"];
             [sublocation setObject:sublocationDescription forKey:@"description"];
+            [sublocationsDict setValue:[sublocation copy] forKey:[NSString stringWithFormat:@"sublocation%d", sublocationStep]];
+            ++sublocationStep;
             [sublocationsArray addObject: [sublocation copy]];
             [sublocation removeAllObjects];
         }
@@ -356,10 +450,12 @@ BOOL retrieveFiles = NO;
     else if ([elementName isEqualToString:@"sublocationList"])
     {
         [location setObject:[sublocationsArray copy] forKey:@"sublocations"];
+        sublocationStep = 1;
         isInSublocation = NO;
     }
     else if ([elementName isEqualToString:@"locationList"])
     {
+        [scenariosDict setValue:[locationsDict copy] forKey:@"00locations"];
         [scenariosArray addObject:[locationsDict copy]];
         [locationsDict removeAllObjects];
         isInLocationsList = NO;
