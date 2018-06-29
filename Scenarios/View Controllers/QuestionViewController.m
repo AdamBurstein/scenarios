@@ -44,6 +44,7 @@ UITableView *tView;
     checkBoxes = [[NSMutableDictionary alloc] init];
     [self readFromFile];
     questions = [dataDictionary valueForKey:@"questions"];
+
     links = [dataDictionary valueForKey:@"links"];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     
@@ -365,101 +366,101 @@ UITableView *tView;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    if ([self.navigationItem.title isEqualToString:@"Emergency Contacts"])
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+    NSDictionary *currentDictionary = [questions objectAtIndex:indexPath.row];
+    if ([currentDictionary objectForKey:@"instructions"] == nil)
     {
-        NSDictionary *dict = [questions objectAtIndex:indexPath.row];
-        NSString *phoneNumber = [dict valueForKey:@"number"];
-        NSString *telephoneNumber = [NSString stringWithFormat:@"telprompt:%@", phoneNumber];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telephoneNumber] options:@{} completionHandler:nil];
-        return;
-    }
-    
-    if ([self.navigationItem.title isEqualToString:@"Instructions"])
-    {
-        if (indexPath.row == [questions count]-1)
-        {
-            MapViewController *mvc = [[MapViewController alloc] init];
-            [self.navigationController pushViewController:mvc animated:YES];
-        }
-        return;
-    }
-                                                    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if ([self.tableView numberOfSections] == 1)
-    {
-        if ([questions count] > 0)
-        {
-            if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
-            {
-                InstructionViewController *controller = [[InstructionViewController alloc] init];
-                controller.fullName = cell.textLabel.text;
-                controller.directoryName = cell.textLabel.text;
-                controller.name = [dataDictionary valueForKey:@"name"];
-                controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
-                [self.navigationController pushViewController:controller animated:YES];
-            }
-            else
-            {
-                NSString *currentValue = [self getCheckboxValue:indexPath.row];
-                if ([currentValue isEqualToString:@"Yes"])
-                    [checkBoxes setValue:@"No" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
-                else
-                    [checkBoxes setValue:@"Yes" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
-            }
-        }
+        NSString *currentValue = [self getCheckboxValue:indexPath.row];
+        if ([currentValue isEqualToString:@"Yes"])
+            [checkBoxes setValue:@"No" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
         else
-        {
-            NSDictionary *dict = [links objectAtIndex:indexPath.row];
-            if ([dict objectForKey:@"linkurl"] != nil)
-            {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict valueForKey:@"url"]] options:@{} completionHandler:nil];
-            }
-            else
-            {
-                FileViewController *controller = [[FileViewController alloc] init];
-                [controller setFileName:[dict valueForKey:@"title"]];
-                [controller setFilePath:[dict valueForKey:@"fileurl"]];
-                [self.navigationController pushViewController:controller animated:YES];
-            }
-        }
+            [checkBoxes setValue:@"Yes" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
     }
-    else if (([self.tableView numberOfSections] == 2) && (indexPath.section == 0))
+    else
     {
-        if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
-        {
-            InstructionViewController *controller = [[InstructionViewController alloc] init];
-            controller.fullName = [dataDictionary valueForKey:@"name"];
-            controller.directoryName = cell.textLabel.text;
-            controller.name = [dataDictionary valueForKey:@"name"];
-            controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
-            [self.navigationController pushViewController:controller animated:YES];
-        }
-        else
-        {
-            NSString *currentValue = [self getCheckboxValue:indexPath.row];
-            if ([currentValue isEqualToString:@"Yes"])
-                [checkBoxes setValue:@"No" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
-            else
-                [checkBoxes setValue:@"Yes" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
-        }
+        // This has another screen
+        InstructionViewController *controller = [[InstructionViewController alloc] init];
+        controller.fullName = [currentDictionary valueForKey:@"text"];
+        controller.directoryName = [currentDictionary valueForKey:@"text"];
+        controller.name = [dataDictionary valueForKey:@"name"];
+        controller.instructionsArray = [currentDictionary valueForKey:@"instructions"];
+        [self.navigationController pushViewController:controller animated:YES];
     }
-    else if (([self.tableView numberOfSections] == 2) && (indexPath.section == 1))
-    {
-        NSDictionary *dict = [links objectAtIndex:indexPath.row];
-        if ([dict objectForKey:@"linkurl"] != nil)
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict valueForKey:@"url"]] options:@{} completionHandler:nil];
-        }
-        else
-        {
-            FileViewController *controller = [[FileViewController alloc] init];
-            [controller setFileName:[dict valueForKey:@"title"]];
-            [controller setFilePath:[dict valueForKey:@"fileurl"]];
-            [self.navigationController pushViewController:controller animated:YES];
-        }
-    }
+
+//    if ([self.tableView numberOfSections] == 1)
+//    {
+//        if ([questions count] > 0)
+//        {
+//            if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
+//            {
+//                InstructionViewController *controller = [[InstructionViewController alloc] init];
+//                controller.fullName = cell.textLabel.text;
+//                controller.directoryName = cell.textLabel.text;
+//                controller.name = [dataDictionary valueForKey:@"name"];
+//                controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
+//                [self.navigationController pushViewController:controller animated:YES];
+//            }
+//            else
+//            {
+//                NSString *currentValue = [self getCheckboxValue:indexPath.row];
+//                if ([currentValue isEqualToString:@"Yes"])
+//                    [checkBoxes setValue:@"No" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+//                else
+//                    [checkBoxes setValue:@"Yes" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+//            }
+//        }
+//        else
+//        {
+//            NSDictionary *dict = [links objectAtIndex:indexPath.row];
+//            if ([dict objectForKey:@"linkurl"] != nil)
+//            {
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict valueForKey:@"url"]] options:@{} completionHandler:nil];
+//            }
+//            else
+//            {
+//                FileViewController *controller = [[FileViewController alloc] init];
+//                [controller setFileName:[dict valueForKey:@"title"]];
+//                [controller setFilePath:[dict valueForKey:@"fileurl"]];
+//                [self.navigationController pushViewController:controller animated:YES];
+//            }
+//        }
+//    }
+//    else if (([self.tableView numberOfSections] == 2) && (indexPath.section == 0))
+//    {
+//        if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator)
+//        {
+//            InstructionViewController *controller = [[InstructionViewController alloc] init];
+//            controller.fullName = [dataDictionary valueForKey:@"name"];
+//            controller.directoryName = cell.textLabel.text;
+//            controller.name = [dataDictionary valueForKey:@"name"];
+//            controller.instructionsArray = [[questions objectAtIndex:indexPath.row] valueForKey:@"instructions"];
+//            [self.navigationController pushViewController:controller animated:YES];
+//        }
+//        else
+//        {
+//            NSString *currentValue = [self getCheckboxValue:indexPath.row];
+//            if ([currentValue isEqualToString:@"Yes"])
+//                [checkBoxes setValue:@"No" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+//            else
+//                [checkBoxes setValue:@"Yes" forKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+//        }
+//    }
+//    else if (([self.tableView numberOfSections] == 2) && (indexPath.section == 1))
+//    {
+//        NSDictionary *dict = [links objectAtIndex:indexPath.row];
+//        if ([dict objectForKey:@"linkurl"] != nil)
+//        {
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict valueForKey:@"url"]] options:@{} completionHandler:nil];
+//        }
+//        else
+//        {
+//            FileViewController *controller = [[FileViewController alloc] init];
+//            [controller setFileName:[dict valueForKey:@"title"]];
+//            [controller setFilePath:[dict valueForKey:@"fileurl"]];
+//            [self.navigationController pushViewController:controller animated:YES];
+//        }
+//    }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self WriteToStringFile];
     [self.tableView reloadData];

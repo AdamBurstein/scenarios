@@ -11,6 +11,7 @@
 #import "QuestionViewController.h"
 #import "SettingsViewController.h"
 #import "LocationsTableViewController.h"
+#import "ContactViewController.h"
 
 @interface ScenarioHomeViewController ()
 
@@ -25,6 +26,8 @@
 UIViewController *lastController;
 
 NSMutableArray *scenariosArray;
+NSMutableDictionary *scenariosDict;
+NSArray *sortedKeys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +42,9 @@ NSMutableArray *scenariosArray;
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0]];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     
-    scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
+    scenariosDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
+    sortedKeys = [[scenariosDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
     [self.tableView reloadData];
 }
 
@@ -61,9 +66,10 @@ NSMutableArray *scenariosArray;
     
     if ([lastController isKindOfClass:[SettingsViewController class]])
     {
-        scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
-        
-        if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
+        scenariosDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
+        sortedKeys = [[scenariosDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+        if ([scenariosDict objectForKey:@"scenario0"] == nil)
         {
             UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
@@ -188,9 +194,11 @@ UIAlertController *pleaseWaitController;
         [handler parseXMLData];
         
         
-    scenariosArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
+    scenariosDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
+    sortedKeys = [[scenariosDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 
-    if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
+    if ([scenariosDict objectForKey:@"scenario0"] == nil)
+//    if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
     {
         UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
@@ -220,11 +228,11 @@ UIAlertController *pleaseWaitController;
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [scenariosArray count];
+    return [[scenariosDict allKeys] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+    - (UITableViewCell *)tableView:(UITableView *)tableView
+             cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *MyIdentifier = @"MyIdentifier";
     
@@ -235,10 +243,10 @@ UIAlertController *pleaseWaitController;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier:MyIdentifier];
     }
-    NSDictionary *dict = [scenariosArray objectAtIndex:indexPath.row];
+    
+    NSDictionary *dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row]];
+    
     NSString *theString = [dict valueForKey:@"name"];
-    if (indexPath.row == 0)
-        theString = @"Locations";
     theString = [theString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
@@ -254,18 +262,26 @@ UIAlertController *pleaseWaitController;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dict = [scenariosArray objectAtIndex:indexPath.row];
-    QuestionViewController *nextController = [[QuestionViewController alloc] init];
-    LocationsTableViewController *locController = [[LocationsTableViewController alloc] init];
-    [nextController setDataDictionary:dict];
-    [locController setDataDictionary:dict];
-    if (indexPath.row == 0)
+    NSDictionary *dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row]];
+    
+    if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"00locations"])
     {
-        [locController setTitle:@"Locations"];
+        LocationsTableViewController *locController = [[LocationsTableViewController alloc] init];
+        [locController setDataDictionary:dict];
+        [locController setTitle:[dict valueForKey:@"name"]];
         [self.navigationController pushViewController:locController animated:YES];
+    }
+    else if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"01emergencyContacts"])
+    {
+        ContactViewController *controller = [[ContactViewController alloc] init];
+        [controller setContactDictionary:dict];
+        [controller setTitle:[dict valueForKey:@"name"]];
+        [self.navigationController pushViewController:controller animated:YES];
     }
     else
     {
+        QuestionViewController *nextController = [[QuestionViewController alloc] init];
+        [nextController setDataDictionary:dict];
         [nextController setTitle:[dict valueForKey:@"name"]];
         [self.navigationController pushViewController:nextController animated:YES];
     }

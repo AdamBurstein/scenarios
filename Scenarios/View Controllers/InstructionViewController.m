@@ -144,7 +144,7 @@ NSMutableCharacterSet *nonAlphaNums;
     cell.layoutMargins = UIEdgeInsetsZero;
     [[cell textLabel] setNumberOfLines:10];
     [[cell textLabel] setFont:font];
-    [[cell textLabel] setText:[instructionsArray objectAtIndex:indexPath.row]];
+    [[cell textLabel] setText:[instructionsArray valueForKey:[NSString stringWithFormat:@"step%ld", indexPath.row]]];
     [cell setAccessoryType:[self getAccessoryType:indexPath]];
     [cell setBackgroundColor:[UIColor clearColor]];
     

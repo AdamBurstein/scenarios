@@ -54,6 +54,7 @@
 		BFDE220C209A40570089E36F /* WHMO AppIcon Notification 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */; };
 		BFDE220E209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */; };
 		BFF0C66520DB1E6D00FA96A6 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */; };
+		BFFAA22720DD8D8300039575 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFAA22620DD8D8300039575 /* ContactViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,10 @@
 		BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "All Scenario Reset.png"; sourceTree = "<group>"; };
 		BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings No Keyboard.PNG"; sourceTree = "<group>"; };
 		BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Keyboard.PNG"; sourceTree = "<group>"; };
+		BF8C4B1B20DCB430000F8A67 /* Scenarios.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scenarios.ipa; sourceTree = "<group>"; };
+		BF8C4B1C20DCB430000F8A67 /* Packaging.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = Packaging.log; sourceTree = "<group>"; };
+		BF8C4B1D20DCB430000F8A67 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
+		BF8C4B1E20DCB430000F8A67 /* DistributionSummary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DistributionSummary.plist; sourceTree = "<group>"; };
 		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +160,8 @@
 		BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WHMO AppIcon-07 BLUE 87x87.png"; sourceTree = "<group>"; };
 		BFF0C66320DB1E6D00FA96A6 /* LocationsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
 		BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
+		BFFAA22520DD8D8300039575 /* ContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		BFFAA22620DD8D8300039575 /* ContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +222,8 @@
 				BFDE21E2209A12BB0089E36F /* MapViewController.xib */,
 				BFF0C66320DB1E6D00FA96A6 /* LocationsTableViewController.h */,
 				BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */,
+				BFFAA22520DD8D8300039575 /* ContactViewController.h */,
+				BFFAA22620DD8D8300039575 /* ContactViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -270,9 +279,21 @@
 			path = "Screen Captures";
 			sourceTree = "<group>";
 		};
+		BF8C4B1A20DCB405000F8A67 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				BF8C4B1E20DCB430000F8A67 /* DistributionSummary.plist */,
+				BF8C4B1D20DCB430000F8A67 /* ExportOptions.plist */,
+				BF8C4B1C20DCB430000F8A67 /* Packaging.log */,
+				BF8C4B1B20DCB430000F8A67 /* Scenarios.ipa */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
+				BF8C4B1A20DCB405000F8A67 /* Release */,
 				BF1C9884202A60C60051F705 /* Frameworks */,
 				BF1C9888202B70170051F705 /* Images */,
 				BFC98BD82023F31A00F7C120 /* Products */,
@@ -515,6 +536,7 @@
 				BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */,
 				BFF0C66520DB1E6D00FA96A6 /* LocationsTableViewController.m in Sources */,
 				BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */,
+				BFFAA22720DD8D8300039575 /* ContactViewController.m in Sources */,
 				BF1C9883202A60A60051F705 /* Reachability.m in Sources */,
 				BFC98BDF2023F31A00F7C120 /* ScenarioHomeViewController.m in Sources */,
 				BFC98BEA2023F31A00F7C120 /* main.m in Sources */,
