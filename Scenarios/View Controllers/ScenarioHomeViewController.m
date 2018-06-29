@@ -34,11 +34,13 @@ NSArray *sortedKeys;
     [self refreshData];
     self.title = @"Home";
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(forceRefreshData)];
-    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
+    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(reset)];
+    UIBarButtonItem *sendLogsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay  target:self action:@selector(sendLogs)];
     UIBarButtonItem *configButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(configure)];
     NSArray *leftButtons = @[barButtonItem, configButton];
+    NSArray *rightButtons = @[sendLogsButton, resetButton];
     self.navigationItem.leftBarButtonItems = leftButtons;
-    self.navigationItem.rightBarButtonItem = resetButton;
+    self.navigationItem.rightBarButtonItems = rightButtons;
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0]];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     
@@ -56,10 +58,10 @@ NSArray *sortedKeys;
         mcvc.mailComposeDelegate = self;
         [mcvc setToRecipients:[NSArray arrayWithObjects:@"aburstein@oa.eop.gov", nil]];
         [mcvc setSubject:@"Debug Log"];
-        NSString *errorMessage = [NSString stringWithFormat:@"%@\n\n\n==========\n\n\n@\%@",
+        NSString *errorMessage = [NSString stringWithFormat:@"\n\n\nPlease feel free to add notes above this line, but do not make any changes below this point.%@\n\n\n==========\n\n\n@\%@",
                                   [[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"],
                                   [[NSUserDefaults standardUserDefaults] valueForKey:@"scenarios"]];
-        [mcvc setMessageBody:[[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"] isHTML:NO];
+        [mcvc setMessageBody:errorMessage isHTML:NO];
         [mcvc setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
         [self presentViewController:mcvc animated:YES completion:nil];
     }
