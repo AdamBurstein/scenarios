@@ -30,7 +30,8 @@ NSMutableArray *locationsArray;
 
     locationsArray = [[NSMutableArray alloc] init];
     
-    NSArray *keys = [dataDictionary allKeys];
+    NSMutableArray *keys = [[dataDictionary allKeys] mutableCopy];
+    [keys removeObject:@"name"];
     
     for (NSString *str in keys)
     {
