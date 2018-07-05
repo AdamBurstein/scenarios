@@ -94,10 +94,17 @@ NSString *annotationSubtitle;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(nonnull MKAnnotationView *)view
 {
     [mapView deselectAnnotation:view.annotation animated:NO];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://maps.apple.com/?q=%f,%f", view.annotation.coordinate.latitude, view.annotation.coordinate.longitude];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
+    NSString *googleUrlString = [NSString stringWithFormat:@"https://maps.google.com/?q=%f,%f&zoom=14&views=traffic", view.annotation.coordinate.latitude, view.annotation.coordinate.longitude];
+    NSString *appleUrlString = [NSString stringWithFormat:@"http://maps.apple.com/?q=%f,%f", view.annotation.coordinate.latitude, view.annotation.coordinate.longitude];
+
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:appleUrlString]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appleUrlString] options:@{} completionHandler:nil];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleUrlString] options:@{} completionHandler:nil];
+    }
 }
 
 @end
