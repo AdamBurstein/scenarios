@@ -31,9 +31,11 @@ NSMutableArray *locationsArray;
     imageView.alpha = 0.15;
     [self.tableView setBackgroundView:imageView];
 
+    locationManager = [[CLLocationManager alloc] init];
+
+    
     [self.locationManager requestWhenInUseAuthorization];
     
-    locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
