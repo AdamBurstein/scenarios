@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface LocationsTableViewController : UITableViewController
+@interface LocationsTableViewController : UITableViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) NSDictionary *dataDictionary;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
