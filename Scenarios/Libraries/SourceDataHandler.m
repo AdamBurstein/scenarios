@@ -149,7 +149,17 @@ int contactStep = 0;
     
     [xmlParser setDelegate:self];
     [xmlParser parse];
-    [[NSUserDefaults standardUserDefaults] setObject:scenariosDict forKey:@"scenarios"];
+    if ([scenariosDict objectForKey:@"scenario0"] == nil)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Invalid XML" forKey:@"errorMessage"];
+        [[NSUserDefaults standardUserDefaults] setObject:xmlString forKey:@"errorXML"];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:scenariosDict forKey:@"scenarios"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"errorMessage"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"errorXML"];
+    }
 
     if (retrieveFiles)
         [self doFileDownloads];
@@ -341,7 +351,8 @@ int contactStep = 0;
     }
     else if ([elementName isEqualToString:@"date"] ||
              [elementName isEqualToString:@"supportEmail"] ||
-             [elementName isEqualToString:@"supportQueue"])
+             [elementName isEqualToString:@"supportQueue"] ||
+             [elementName isEqualToString:@"remoteURL"])
     {
         [versionDict setValue:removedWhiteSpaceString forKey:elementName];
     }
@@ -463,7 +474,13 @@ int contactStep = 0;
     }
 
     mstrXMLString = nil;
-    [[NSUserDefaults standardUserDefaults] setObject:versionDict forKey:@"versionData"];
+    
+    if ([[versionDict allKeys] containsObject:@"remoteURL"])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:versionDict forKey:@"versionData"];
+        NSData *remoteURLData = [[versionDict valueForKey:@"remoteURL"] dataUsingEncoding:NSUTF8StringEncoding];
+        [self WriteToFile:remoteURLData inFile:@"remoteURL.txt"]; 
+    }
 }
 
 #pragma mark - Download Methods
@@ -475,11 +492,26 @@ int contactStep = 0;
 
 -(NSData *)downloadFile:(NSURL *)remoteURL
 {
-    NSURLResponse *urlResponse;
-    NSError *error;
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:remoteURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:2.0];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    return data;
+    __block NSData *theReturn;
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:remoteURL];
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.timeoutIntervalForRequest = 3.0;
+    config.timeoutIntervalForResource = 6.0;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        theReturn = data;
+        if (!data)
+        {
+            NSLog(@"%@", error);
+        }
+        dispatch_semaphore_signal(semaphore);
+    }];
+    [dataTask resume];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    return theReturn;
 }
 
 -(NSURL *)getURL
