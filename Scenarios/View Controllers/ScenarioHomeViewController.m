@@ -35,7 +35,7 @@ NSArray *sortedKeys;
     self.title = @"Home";
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(forceRefreshData)];
     UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(reset)];
-    UIBarButtonItem *sendLogsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay  target:self action:@selector(sendLogs)];
+    UIBarButtonItem *sendLogsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:self action:@selector(sendLogs)];
     UIBarButtonItem *configButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(configure)];
     NSArray *leftButtons = @[barButtonItem, configButton];
     NSArray *rightButtons = @[sendLogsButton, resetButton];
@@ -61,7 +61,7 @@ NSArray *sortedKeys;
         [mcvc setToRecipients:[NSArray arrayWithObjects:supportEmail, nil]];
         [mcvc setSubject:@"Debug Log"];
         NSString *errorMessage = [NSString stringWithFormat:@"\n\n\nPlease feel free to add notes above this line, but do not make any changes below this point.\n\n%@\n\n\n==========\n\n\n@\%@",
-                                  [[NSUserDefaults standardUserDefaults] valueForKey:@"xmlString"],
+                                  [[NSUserDefaults standardUserDefaults] valueForKey:@"errorXML"],
                                   [[NSUserDefaults standardUserDefaults] valueForKey:@"scenarios"]];
         [mcvc setMessageBody:errorMessage isHTML:NO];
         [mcvc setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
@@ -80,6 +80,7 @@ NSArray *sortedKeys;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     UIImage *bgImage = [UIImage imageNamed:@"WHMO AppLaunch-06 BLUE 3x.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
     imageView.alpha = 0.15;
@@ -90,13 +91,16 @@ NSArray *sortedKeys;
         scenariosDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
         sortedKeys = [[scenariosDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 
-        if ([scenariosDict objectForKey:@"scenario0"] == nil)
+        NSString *errorMessage = [[NSUserDefaults standardUserDefaults] valueForKey:@"errorMessage"];
+        
+//        if ([scenariosDict objectForKey:@"scenario0"] == nil)
+        if (![errorMessage isEqualToString:@""])
         {
-            UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
-            UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+            UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.\n\nYour previous scenario data will remain available to you at this time.\n\nWhat would you like to do?" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"Continue with existing scenarios" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Try to enter a new remote address" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                         {[self configure];}];
-            UIAlertAction *sendDebugAction = [UIAlertAction actionWithTitle:@"Send Logs" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+            UIAlertAction *sendDebugAction = [UIAlertAction actionWithTitle:@"Request support" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                               {[self sendLogs];}];
 
             [alertController2 addAction:noAction];
@@ -112,11 +116,10 @@ NSArray *sortedKeys;
 
 -(void) reset
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = self.GetDocumentDirectory;
     NSError *err;
     BOOL foundOne = NO;
     
-    filepath = self.GetDocumentDirectory;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *files = [fileManager contentsOfDirectoryAtPath:filepath error:&err];
     for (int i = 0; i < [files count]; ++i)
@@ -136,10 +139,17 @@ NSArray *sortedKeys;
             }
             else
             {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Errpr" message:@"There was an error resetting your scenarios." preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
-                [alert addAction:action];
-                [self presentViewController:alert animated:YES completion:nil];
+                UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.\n\nYour previous scenario data will remain available to you at this time.\n\nWhat would you like to do?" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"Continue with existing scenarios" style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Try to enter a new remote address" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                            {[self configure];}];
+                UIAlertAction *sendDebugAction = [UIAlertAction actionWithTitle:@"Request support" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                                  {[self sendLogs];}];
+                
+                [alertController2 addAction:noAction];
+                [alertController2 addAction:sendDebugAction];
+                [alertController2 addAction:yesAction];
+                [self presentViewController:alertController2 animated:YES completion:nil];
             }
 
         }
@@ -222,8 +232,10 @@ UIAlertController *pleaseWaitController;
     scenariosDict = [[NSUserDefaults standardUserDefaults] objectForKey:@"scenarios"];
     sortedKeys = [[scenariosDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 
-    if ([scenariosDict objectForKey:@"scenario0"] == nil)
-//    if ([[scenariosArray objectAtIndex:1] valueForKey:@"questions"] == nil)
+    NSString *errorMessage = [[NSUserDefaults standardUserDefaults] valueForKey:@"errorMessage"];
+
+    //        if ([scenariosDict objectForKey:@"scenario0"] == nil)
+    if (![errorMessage isEqualToString:@""])
     {
         UIAlertController *alertController2 = [UIAlertController alertControllerWithTitle:@"Error" message:@"There was an error retrieving the scenario data.  Would you like to provide a remote address?" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
@@ -235,6 +247,7 @@ UIAlertController *pleaseWaitController;
         [alertController2 addAction:sendDebugAction];
         [alertController2 addAction:yesAction];
         [self presentViewController:alertController2 animated:YES completion:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"errorMessage"];
     }
     [self.tableView reloadData];
 
@@ -251,15 +264,42 @@ UIAlertController *pleaseWaitController;
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString *theText = @"";
+    if (section == 0)
+        theText = @"Operational Support";
+    if (section == 1)
+        theText = @"Scenarios";
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), 50)];
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15,15,headerView.frame.size.width-30,35)];
+    [label setText:theText];
+    [label setTextAlignment:NSTextAlignmentLeft];
+    [label setFont:[UIFont boldSystemFontOfSize:22.0f]];
+    [label setTextColor:[UIColor blackColor]];
+    [headerView addSubview:label];
+    return headerView;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[scenariosDict allKeys] count];
+    if (section == 0)
+        return 3;
+    
+    return ([[scenariosDict allKeys] count] - 3);
 }
 
-    - (UITableViewCell *)tableView:(UITableView *)tableView
+- (UITableViewCell *)tableView:(UITableView *)tableView
              cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *MyIdentifier = @"MyIdentifier";
@@ -272,7 +312,12 @@ UIAlertController *pleaseWaitController;
                                        reuseIdentifier:MyIdentifier];
     }
     
-    NSDictionary *dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row]];
+    NSDictionary *dict = nil;
+    dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row]];
+    if (indexPath.section == 1)
+    {
+        dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row+3]];
+    }
     
     NSString *theString = [dict valueForKey:@"name"];
     theString = [theString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -291,20 +336,34 @@ UIAlertController *pleaseWaitController;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row]];
-    
-    if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"00locations"])
+    if (indexPath.section == 1)
     {
-        LocationsTableViewController *locController = [[LocationsTableViewController alloc] init];
-        [locController setDataDictionary:dict];
-        [locController setTitle:[dict valueForKey:@"name"]];
-        [self.navigationController pushViewController:locController animated:YES];
+        dict = [scenariosDict objectForKey:[sortedKeys objectAtIndex:indexPath.row+3]];
     }
-    else if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"01emergencyContacts"])
+    
+    if (indexPath.section == 0)
     {
-        ContactViewController *controller = [[ContactViewController alloc] init];
-        [controller setContactDictionary:dict];
-        [controller setTitle:[dict valueForKey:@"name"]];
-        [self.navigationController pushViewController:controller animated:YES];
+        if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"00locations"])
+        {
+            LocationsTableViewController *locController = [[LocationsTableViewController alloc] init];
+            [locController setDataDictionary:dict];
+            [locController setTitle:[dict valueForKey:@"name"]];
+            [self.navigationController pushViewController:locController animated:YES];
+        }
+        else if ([[sortedKeys objectAtIndex:indexPath.row] isEqualToString:@"01emergencyContacts"])
+        {
+            ContactViewController *controller = [[ContactViewController alloc] init];
+            [controller setContactDictionary:dict];
+            [controller setTitle:[dict valueForKey:@"name"]];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        else
+        {
+            QuestionViewController *nextController = [[QuestionViewController alloc] init];
+            [nextController setDataDictionary:dict];
+            [nextController setTitle:[dict valueForKey:@"name"]];
+            [self.navigationController pushViewController:nextController animated:YES];
+        }
     }
     else
     {

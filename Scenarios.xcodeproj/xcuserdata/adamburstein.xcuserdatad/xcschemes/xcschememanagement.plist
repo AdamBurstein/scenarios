@@ -9,6 +9,34 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ScenariosBeta.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BF1CF25C21503E4600724761</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFC98BD62023F31A00F7C120</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFC98BEE2023F31A00F7C120</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFC98BF92023F31A00F7C120</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -16,13 +16,14 @@
 #pragma mark - Methods
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     self.navigationItem.title = fileName; 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
 
-    
+    [super viewWillAppear:animated];
     NSString *fn = [self.GetDocumentDirectory stringByAppendingPathComponent:[self getDirectory]];
     NSData *data = [NSData dataWithContentsOfFile:fn];
     PDFDocument *pdfDocument = [[PDFDocument alloc] initWithData:data];

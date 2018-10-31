@@ -17,6 +17,54 @@
 		BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BF1C9897202C90290051F705 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9895202C90290051F705 /* SettingsViewController.m */; };
 		BF1C9898202C90290051F705 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
+		BF1CF25E21503E4600724761 /* SourceDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C0D2023F34100F7C120 /* SourceDataHandler.m */; };
+		BF1CF25F21503E4600724761 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C987F2029748A0051F705 /* InstructionViewController.m */; };
+		BF1CF26021503E4600724761 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98C112024B76000F7C120 /* QuestionViewController.m */; };
+		BF1CF26121503E4600724761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDE21E1209A12BB0089E36F /* MapViewController.m */; };
+		BF1CF26221503E4600724761 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9895202C90290051F705 /* SettingsViewController.m */; };
+		BF1CF26321503E4600724761 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF0C66420DB1E6D00FA96A6 /* LocationsTableViewController.m */; };
+		BF1CF26421503E4600724761 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */; };
+		BF1CF26521503E4600724761 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFAA22620DD8D8300039575 /* ContactViewController.m */; };
+		BF1CF26621503E4600724761 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C9882202A60A60051F705 /* Reachability.m */; };
+		BF1CF26721503E4600724761 /* ScenarioHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDE2023F31A00F7C120 /* ScenarioHomeViewController.m */; };
+		BF1CF26821503E4600724761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BE92023F31A00F7C120 /* main.m */; };
+		BF1CF26921503E4600724761 /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C988E202B7C210051F705 /* FileViewController.m */; };
+		BF1CF26A21503E4600724761 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */; };
+		BF1CF26B21503E4600724761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC98BDB2023F31A00F7C120 /* AppDelegate.m */; };
+		BF1CF26D21503E4600724761 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4178AF214956030021BFD8 /* CoreLocation.framework */; };
+		BF1CF26E21503E4600724761 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF06388820E5DA9A00401A8C /* MessageUI.framework */; };
+		BF1CF26F21503E4600724761 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDE21E5209A16880089E36F /* MapKit.framework */; };
+		BF1CF27021503E4600724761 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9890202B96200051F705 /* PDFKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		BF1CF27221503E4600724761 /* WHMO AppIcon-12 BLUEMONO 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F0209A3CCF0089E36F /* WHMO AppIcon-12 BLUEMONO 2x.png */; };
+		BF1CF27321503E4600724761 /* fileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9889202B70240051F705 /* fileIcon.png */; };
+		BF1CF27421503E4600724761 /* WHMO AppIcon-07 BLUE 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220D209A40930089E36F /* WHMO AppIcon-07 BLUE 87x87.png */; };
+		BF1CF27521503E4600724761 /* WHMO AppLaunch-09 BLUEMONO 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F2209A3CCF0089E36F /* WHMO AppLaunch-09 BLUEMONO 2x.png */; };
+		BF1CF27621503E4600724761 /* WHMO AppIcon-04 GRAY 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21ED209A3CCE0089E36F /* WHMO AppIcon-04 GRAY 2x.png */; };
+		BF1CF27721503E4600724761 /* WHMO AppIcon-08 BLUE 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EF209A3CCE0089E36F /* WHMO AppIcon-08 BLUE 2x.png */; };
+		BF1CF27821503E4600724761 /* PPRLogo_BlackGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7A203E7FBB00606C51 /* PPRLogo_BlackGlobe.png */; };
+		BF1CF27921503E4600724761 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9896202C90290051F705 /* SettingsViewController.xib */; };
+		BF1CF27A21503E4600724761 /* WHMO AppIcon-07 BLUE 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EE209A3CCE0089E36F /* WHMO AppIcon-07 BLUE 3x.png */; };
+		BF1CF27B21503E4600724761 /* WHMO AppLaunch-10 BLUEMONO 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21E9209A3CCE0089E36F /* WHMO AppLaunch-10 BLUEMONO 3x.png */; };
+		BF1CF27C21503E4600724761 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF5C5BD4205C2B7200681045 /* scenarioData.xml */; };
+		BF1CF27D21503E4600724761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE52023F31A00F7C120 /* LaunchScreen.storyboard */; };
+		BF1CF27E21503E4600724761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE32023F31A00F7C120 /* Assets.xcassets */; };
+		BF1CF27F21503E4600724761 /* WHMO AppLaunch-02 GRAY 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EA209A3CCE0089E36F /* WHMO AppLaunch-02 GRAY 3x.png */; };
+		BF1CF28021503E4600724761 /* WHMO AppLaunch-05 BLUE 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F3209A3CCF0089E36F /* WHMO AppLaunch-05 BLUE 2x.png */; };
+		BF1CF28121503E4600724761 /* WHMO AppLaunch-01 GRAY 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EB209A3CCE0089E36F /* WHMO AppLaunch-01 GRAY 2x.png */; };
+		BF1CF28221503E4600724761 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7C203E814A00606C51 /* PPR_1242x2208_GrayBG_AppLaunch.png */; };
+		BF1CF28321503E4600724761 /* WHMO AppIcon Notification 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2203209A3EBC0089E36F /* WHMO AppIcon Notification 3x.png */; };
+		BF1CF28421503E4600724761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC98BE02023F31A00F7C120 /* Main.storyboard */; };
+		BF1CF28521503E4600724761 /* WHMO AppIcon Notification 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2207209A3F090089E36F /* WHMO AppIcon Notification 2x.png */; };
+		BF1CF28621503E4600724761 /* linkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C988A202B70240051F705 /* linkIcon.png */; };
+		BF1CF28721503E4600724761 /* WHMO AppIcon Notification 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE220B209A40570089E36F /* WHMO AppIcon Notification 58x58.png */; };
+		BF1CF28821503E4600724761 /* WHMO AppIcon-08 BLUE 2x Spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2201209A3E180089E36F /* WHMO AppIcon-08 BLUE 2x Spotlight.png */; };
+		BF1CF28921503E4600724761 /* WHMO AppIcon-11 BLUEMONO 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F4209A3CCF0089E36F /* WHMO AppIcon-11 BLUEMONO 3x.png */; };
+		BF1CF28A21503E4600724761 /* WHMO AppLaunchIcon 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE2209209A3FDB0089E36F /* WHMO AppLaunchIcon 1024.png */; };
+		BF1CF28B21503E4600724761 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21E2209A12BB0089E36F /* MapViewController.xib */; };
+		BF1CF28C21503E4600724761 /* WHMO AppLaunch-06 BLUE 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21F1209A3CCF0089E36F /* WHMO AppLaunch-06 BLUE 3x.png */; };
+		BF1CF28D21503E4600724761 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCD1A7D203E814A00606C51 /* PPR_750x1334_GrayBG_AppLaunch.png */; };
+		BF1CF28E21503E4600724761 /* WHMO AppIcon-03 GRAY 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE21EC209A3CCE0089E36F /* WHMO AppIcon-03 GRAY 3x.png */; };
+		BF4178B0214956030021BFD8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4178AF214956030021BFD8 /* CoreLocation.framework */; };
 		BF5C5BD5205C2B7200681045 /* scenarioData.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF5C5BD4205C2B7200681045 /* scenarioData.xml */; };
 		BF629821205DC69400B799E7 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */; };
 		BF629825205DC8E300B799E7 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */; };
@@ -90,25 +138,14 @@
 		BF1C9894202C90290051F705 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		BF1C9895202C90290051F705 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BF1C9896202C90290051F705 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		BF1CF29421503E4600724761 /* ScenariosBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScenariosBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF1CF29521503E4600724761 /* ScenariosBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ScenariosBeta-Info.plist"; path = "/Users/adamburstein/Desktop/Source Code/Scenarios/ScenariosBeta-Info.plist"; sourceTree = "<absolute>"; };
+		BF4178AF214956030021BFD8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BF5C5BD4205C2B7200681045 /* scenarioData.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = scenarioData.xml; path = ../../../../../Applications/MAMP/htdocs/scenarioData.xml; sourceTree = "<group>"; };
 		BF62981F205DC69400B799E7 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		BF629820205DC69400B799E7 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		BF629822205DC8BE00B799E7 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
 		BF629824205DC8E300B799E7 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
-		BF6DC4CB20DBEE17006422B1 /* Emergency Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Emergency Contacts.png"; sourceTree = "<group>"; };
-		BF6DC4CC20DBEE17006422B1 /* Instructions to Specific Locations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instructions to Specific Locations.png"; sourceTree = "<group>"; };
-		BF6DC4CD20DBEE17006422B1 /* Locations Listing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Locations Listing.png"; sourceTree = "<group>"; };
-		BF6DC4CE20DBEE17006422B1 /* Cyber Threat - No Selections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cyber Threat - No Selections.png"; sourceTree = "<group>"; };
-		BF6DC4CF20DBEE17006422B1 /* Cyber Threat - One Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cyber Threat - One Selected.png"; sourceTree = "<group>"; };
-		BF6DC4D020DBEE17006422B1 /* Home Screen - App Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home Screen - App Icon.png"; sourceTree = "<group>"; };
-		BF6DC4D120DBEE17006422B1 /* Apple Maps of Location for Navigation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple Maps of Location for Navigation.png"; sourceTree = "<group>"; };
-		BF6DC4D220DBEE17006422B1 /* Dialing WHSR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dialing WHSR.png"; sourceTree = "<group>"; };
-		BF6DC4D320DBEE17006422B1 /* Home Screen - In App.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home Screen - In App.png"; sourceTree = "<group>"; };
-		BF6DC4D420DBEE17006422B1 /* Map View of Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map View of Location.png"; sourceTree = "<group>"; };
-		BF6DC4D520DBEE18006422B1 /* Critical Infrastructure - Multiple Selections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Critical Infrastructure - Multiple Selections.png"; sourceTree = "<group>"; };
-		BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "All Scenario Reset.png"; sourceTree = "<group>"; };
-		BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings No Keyboard.PNG"; sourceTree = "<group>"; };
-		BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Keyboard.PNG"; sourceTree = "<group>"; };
 		BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BFC98BD72023F31A00F7C120 /* Scenarios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenarios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC98BDA2023F31A00F7C120 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,10 +200,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF1CF26C21503E4600724761 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1CF26D21503E4600724761 /* CoreLocation.framework in Frameworks */,
+				BF1CF26E21503E4600724761 /* MessageUI.framework in Frameworks */,
+				BF1CF26F21503E4600724761 /* MapKit.framework in Frameworks */,
+				BF1CF27021503E4600724761 /* PDFKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFC98BD42023F31A00F7C120 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4178B0214956030021BFD8 /* CoreLocation.framework in Frameworks */,
 				BF06388920E5DA9A00401A8C /* MessageUI.framework in Frameworks */,
 				BFDE21E6209A16880089E36F /* MapKit.framework in Frameworks */,
 				BF1C9891202B96200051F705 /* PDFKit.framework in Frameworks */,
@@ -194,6 +243,7 @@
 		BF1C9884202A60C60051F705 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF4178AF214956030021BFD8 /* CoreLocation.framework */,
 				BF06388820E5DA9A00401A8C /* MessageUI.framework */,
 				BFDE21E5209A16880089E36F /* MapKit.framework */,
 				BF94F1F82086C28000DA0DBE /* LocalAuthentication.framework */,
@@ -258,27 +308,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		BF6DC4CA20DBEDD0006422B1 /* Screen Captures */ = {
-			isa = PBXGroup;
-			children = (
-				BF6DC4D820DBEE7E006422B1 /* Settings Keyboard.PNG */,
-				BF6DC4D720DBEE7E006422B1 /* Settings No Keyboard.PNG */,
-				BF6DC4D620DBEE18006422B1 /* All Scenario Reset.png */,
-				BF6DC4D120DBEE17006422B1 /* Apple Maps of Location for Navigation.png */,
-				BF6DC4D520DBEE18006422B1 /* Critical Infrastructure - Multiple Selections.png */,
-				BF6DC4CE20DBEE17006422B1 /* Cyber Threat - No Selections.png */,
-				BF6DC4CF20DBEE17006422B1 /* Cyber Threat - One Selected.png */,
-				BF6DC4D220DBEE17006422B1 /* Dialing WHSR.png */,
-				BF6DC4CB20DBEE17006422B1 /* Emergency Contacts.png */,
-				BF6DC4D020DBEE17006422B1 /* Home Screen - App Icon.png */,
-				BF6DC4D320DBEE17006422B1 /* Home Screen - In App.png */,
-				BF6DC4CC20DBEE17006422B1 /* Instructions to Specific Locations.png */,
-				BF6DC4CD20DBEE17006422B1 /* Locations Listing.png */,
-				BF6DC4D420DBEE17006422B1 /* Map View of Location.png */,
-			);
-			path = "Screen Captures";
-			sourceTree = "<group>";
-		};
 		BFC98BCE2023F31A00F7C120 = {
 			isa = PBXGroup;
 			children = (
@@ -289,7 +318,7 @@
 				BFC98BD92023F31A00F7C120 /* Scenarios */,
 				BFC98BF22023F31A00F7C120 /* ScenariosTests */,
 				BFC98BFD2023F31A00F7C120 /* ScenariosUITests */,
-				BF6DC4CA20DBEDD0006422B1 /* Screen Captures */,
+				BF1CF29521503E4600724761 /* ScenariosBeta-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,6 +328,7 @@
 				BFC98BD72023F31A00F7C120 /* Scenarios.app */,
 				BFC98BEF2023F31A00F7C120 /* ScenariosTests.xctest */,
 				BFC98BFA2023F31A00F7C120 /* ScenariosUITests.xctest */,
+				BF1CF29421503E4600724761 /* ScenariosBeta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,6 +386,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF1CF25C21503E4600724761 /* ScenariosBeta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF1CF29121503E4600724761 /* Build configuration list for PBXNativeTarget "ScenariosBeta" */;
+			buildPhases = (
+				BF1CF25D21503E4600724761 /* Sources */,
+				BF1CF26C21503E4600724761 /* Frameworks */,
+				BF1CF27121503E4600724761 /* Resources */,
+				BF1CF28F21503E4600724761 /* ShellScript */,
+				BF1CF29021503E4600724761 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScenariosBeta;
+			productName = Scenarios;
+			productReference = BF1CF29421503E4600724761 /* ScenariosBeta.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BFC98BD62023F31A00F7C120 /* Scenarios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFC98C032023F31A00F7C120 /* Build configuration list for PBXNativeTarget "Scenarios" */;
@@ -420,10 +469,19 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Adam Burstein";
 				TargetAttributes = {
+					BF1CF25C21503E4600724761 = {
+						ProvisioningStyle = Automatic;
+					};
 					BFC98BD62023F31A00F7C120 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -457,11 +515,48 @@
 				BFC98BD62023F31A00F7C120 /* Scenarios */,
 				BFC98BEE2023F31A00F7C120 /* ScenariosTests */,
 				BFC98BF92023F31A00F7C120 /* ScenariosUITests */,
+				BF1CF25C21503E4600724761 /* ScenariosBeta */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF1CF27121503E4600724761 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1CF27221503E4600724761 /* WHMO AppIcon-12 BLUEMONO 2x.png in Resources */,
+				BF1CF27321503E4600724761 /* fileIcon.png in Resources */,
+				BF1CF27421503E4600724761 /* WHMO AppIcon-07 BLUE 87x87.png in Resources */,
+				BF1CF27521503E4600724761 /* WHMO AppLaunch-09 BLUEMONO 2x.png in Resources */,
+				BF1CF27621503E4600724761 /* WHMO AppIcon-04 GRAY 2x.png in Resources */,
+				BF1CF27721503E4600724761 /* WHMO AppIcon-08 BLUE 2x.png in Resources */,
+				BF1CF27821503E4600724761 /* PPRLogo_BlackGlobe.png in Resources */,
+				BF1CF27921503E4600724761 /* SettingsViewController.xib in Resources */,
+				BF1CF27A21503E4600724761 /* WHMO AppIcon-07 BLUE 3x.png in Resources */,
+				BF1CF27B21503E4600724761 /* WHMO AppLaunch-10 BLUEMONO 3x.png in Resources */,
+				BF1CF27C21503E4600724761 /* scenarioData.xml in Resources */,
+				BF1CF27D21503E4600724761 /* LaunchScreen.storyboard in Resources */,
+				BF1CF27E21503E4600724761 /* Assets.xcassets in Resources */,
+				BF1CF27F21503E4600724761 /* WHMO AppLaunch-02 GRAY 3x.png in Resources */,
+				BF1CF28021503E4600724761 /* WHMO AppLaunch-05 BLUE 2x.png in Resources */,
+				BF1CF28121503E4600724761 /* WHMO AppLaunch-01 GRAY 2x.png in Resources */,
+				BF1CF28221503E4600724761 /* PPR_1242x2208_GrayBG_AppLaunch.png in Resources */,
+				BF1CF28321503E4600724761 /* WHMO AppIcon Notification 3x.png in Resources */,
+				BF1CF28421503E4600724761 /* Main.storyboard in Resources */,
+				BF1CF28521503E4600724761 /* WHMO AppIcon Notification 2x.png in Resources */,
+				BF1CF28621503E4600724761 /* linkIcon.png in Resources */,
+				BF1CF28721503E4600724761 /* WHMO AppIcon Notification 58x58.png in Resources */,
+				BF1CF28821503E4600724761 /* WHMO AppIcon-08 BLUE 2x Spotlight.png in Resources */,
+				BF1CF28921503E4600724761 /* WHMO AppIcon-11 BLUEMONO 3x.png in Resources */,
+				BF1CF28A21503E4600724761 /* WHMO AppLaunchIcon 1024.png in Resources */,
+				BF1CF28B21503E4600724761 /* MapViewController.xib in Resources */,
+				BF1CF28C21503E4600724761 /* WHMO AppLaunch-06 BLUE 3x.png in Resources */,
+				BF1CF28D21503E4600724761 /* PPR_750x1334_GrayBG_AppLaunch.png in Resources */,
+				BF1CF28E21503E4600724761 /* WHMO AppIcon-03 GRAY 3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFC98BD52023F31A00F7C120 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,14 +612,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		BF06388A20E5DF8600401A8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
@@ -541,9 +636,56 @@
 			shellPath = /bin/sh;
 			shellScript = "VERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
+		BF1CF28F21503E4600724761 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+		BF1CF29021503E4600724761 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "VERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF1CF25D21503E4600724761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1CF25E21503E4600724761 /* SourceDataHandler.m in Sources */,
+				BF1CF25F21503E4600724761 /* InstructionViewController.m in Sources */,
+				BF1CF26021503E4600724761 /* QuestionViewController.m in Sources */,
+				BF1CF26121503E4600724761 /* MapViewController.m in Sources */,
+				BF1CF26221503E4600724761 /* SettingsViewController.m in Sources */,
+				BF1CF26321503E4600724761 /* LocationsTableViewController.m in Sources */,
+				BF1CF26421503E4600724761 /* UIDevice+IdentifierAddition.m in Sources */,
+				BF1CF26521503E4600724761 /* ContactViewController.m in Sources */,
+				BF1CF26621503E4600724761 /* Reachability.m in Sources */,
+				BF1CF26721503E4600724761 /* ScenarioHomeViewController.m in Sources */,
+				BF1CF26821503E4600724761 /* main.m in Sources */,
+				BF1CF26921503E4600724761 /* FileViewController.m in Sources */,
+				BF1CF26A21503E4600724761 /* NSString+MD5Addition.m in Sources */,
+				BF1CF26B21503E4600724761 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFC98BD32023F31A00F7C120 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -616,6 +758,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF1CF29221503E4600724761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scenarios/Scenarios.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P454TBZRS4;
+				INFOPLIST_FILE = "ScenariosBeta-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gov.eop.oa.ScenariosBeta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF1CF29321503E4600724761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scenarios/Scenarios.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P454TBZRS4;
+				INFOPLIST_FILE = "ScenariosBeta-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gov.eop.oa.ScenariosBeta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BFC98C012023F31A00F7C120 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -811,6 +983,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF1CF29121503E4600724761 /* Build configuration list for PBXNativeTarget "ScenariosBeta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF1CF29221503E4600724761 /* Debug */,
+				BF1CF29321503E4600724761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BFC98BD22023F31A00F7C120 /* Build configuration list for PBXProject "Scenarios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

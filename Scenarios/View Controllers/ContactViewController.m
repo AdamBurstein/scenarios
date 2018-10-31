@@ -44,7 +44,7 @@ NSMutableArray *sortedKeys2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSUInteger adam = [sortedKeys2 count];
+//    NSUInteger adam = [sortedKeys2 count];
     return [sortedKeys2 count];
 }
 
