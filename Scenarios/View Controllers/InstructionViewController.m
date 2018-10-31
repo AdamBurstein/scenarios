@@ -163,10 +163,8 @@ NSMutableCharacterSet *nonAlphaNums;
 
 -(void)WriteToStringFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     NSError *err;
-    
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     
     NSString *textToWrite = [[NSString alloc] init];
     for (id key in checkBoxes)
@@ -191,9 +189,8 @@ NSMutableCharacterSet *nonAlphaNums;
 
 -(NSString *) readFromFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:name]]];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
     NSArray *array = [txtInFile componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; ++i)

@@ -64,9 +64,8 @@
 
 -(NSString *) readFromFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingString:@"/remoteURL.txt"];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingString:@"/remoteURL.txt"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:filepath])
     {
@@ -79,10 +78,8 @@
 
 -(void)WriteToStringFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"remoteURL.txt"];
     NSError *err;
-    
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"remoteURL.txt"];
     
     BOOL ok = [[remoteURLField text] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:&err];
     
@@ -101,6 +98,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [remoteURLField becomeFirstResponder];
 }
 

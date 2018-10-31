@@ -53,8 +53,11 @@ UITableView *tView;
     imageView.alpha = 0.15;
     [self.tableView setBackgroundView:imageView];
 
-    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
-    self.navigationItem.rightBarButtonItem = resetButton;
+    if (![[dataDictionary valueForKey:@"name"] isEqualToString:@"Access to PEOC"])
+    {
+        UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStylePlain target:self action:@selector(reset)];
+        self.navigationItem.rightBarButtonItem = resetButton;
+    }
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     tView = ((UITableView *)self.view);
@@ -67,9 +70,8 @@ UITableView *tView;
 
 -(NSString *) readFromFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
     NSArray *array = [txtInFile componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; ++i)
@@ -366,7 +368,13 @@ UITableView *tView;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([[dataDictionary valueForKey:@"name"] isEqualToString:@"Access to PEOC"])
+    {
+        return;
+    }
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
 
     NSDictionary *currentDictionary = [questions objectAtIndex:indexPath.row];
     if ([currentDictionary objectForKey:@"instructions"] == nil)
@@ -478,11 +486,10 @@ UITableView *tView;
 
 -(void) reset
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = self.GetDocumentDirectory;
     NSError *err;
     BOOL foundOne = NO;
     
-    filepath = self.GetDocumentDirectory;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *files = [fileManager contentsOfDirectoryAtPath:filepath error:&err];
     for (int i = 0; i < [files count]; ++i)
@@ -528,11 +535,9 @@ UITableView *tView;
 
 -(void)WriteToStringFile
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
     NSError *err;
     
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_set.txt", [self formatName:[dataDictionary valueForKey:@"name"]]]];
-
     NSString *textToWrite = [[NSString alloc] init];
     for (id key in checkBoxes)
     {
