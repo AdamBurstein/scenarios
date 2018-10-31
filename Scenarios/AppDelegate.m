@@ -24,6 +24,9 @@
     [self copyXMLFileToDocuments];
     application.applicationIconBadgeNumber = 0;
     
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"errorMessage"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"errorXML"];
+
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     center.delegate = self;
 
@@ -56,9 +59,8 @@
 
 -(void) copyXMLFileToDocuments
 {
-    NSString *filepath = [[NSString alloc] init];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"scenarioData.xml"];
     NSError *error = nil;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"scenarioData.xml"];
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:filepath])
         return;
@@ -73,8 +75,7 @@
     
     if ((tokenString == nil) || ([tokenString isEqualToString:@""]))
     {
-        NSString *tokenString = [deviceToken description];
-        tokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        NSString *tokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
         tokenString = [tokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
         NSLog(@"Push Notification tokenstring is %@",tokenString);
 
